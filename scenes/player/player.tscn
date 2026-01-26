@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://ck8q5movsdlbw"]
+[gd_scene load_steps=12 format=3 uid="uid://ck8q5movsdlbw"]
 
 [ext_resource type="Script" uid="uid://b2w0eqkf6i10h" path="res://scripts/player/player.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://bnayoc35hukpp" path="res://scripts/player/cam.gd" id="2_dovo2"]
 [ext_resource type="Script" uid="uid://bskdfx42qvnwp" path="res://scripts/player/hitbox.gd" id="2_gmlin"]
-[ext_resource type="PackedScene" uid="uid://mui71wyyjmo3" path="res://Untitled.gltf" id="3_lvxji"]
+[ext_resource type="PackedScene" uid="uid://mui71wyyjmo3" path="res://assets/Untitled.gltf" id="3_lvxji"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p47bc"]
 size = Vector3(0.802124, 0.6201782, 0.5621948)
@@ -76,6 +76,10 @@ _data = {
 &"zoom_pan": SubResource("Animation_gmlin")
 }
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lvxji"]
+height = 0.89575195
+radius = 0.5600586
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_8afob")
 
@@ -90,10 +94,12 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 [node name="Sprite3D" type="Sprite3D" parent="."]
 
 [node name="cam" type="Camera3D" parent="." node_paths=PackedStringArray("follow_target", "look_target")]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 4, 5)
+transform = Transform3D(1, 0, 0, 0, 0.83808076, 0.5455463, 0, -0.5455463, 0.83808076, 0, 10.544371, 15.7860985)
 top_level = true
+projection = 1
 current = true
 fov = 55.0
+size = 5.3989773
 script = ExtResource("2_dovo2")
 follow_target = NodePath("..")
 look_target = NodePath("..")
@@ -103,3 +109,11 @@ root_node = NodePath("../cam")
 libraries = {
 &"": SubResource("AnimationLibrary_lvxji")
 }
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.552124, 0)
+shape = SubResource("CylinderShape3D_lvxji")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

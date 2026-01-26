@@ -10,8 +10,10 @@ var last_direction
 var lerp_speed = 0.08
 var sprint_speed = 7.5
 var turn_speed = 0.04
+var pushing = false;
+var speed = 5.0
 
-const SPEED = 5.0
+const BASE_SPEED = 5.0
 const JUMP_VELOCITY = 6.0
 
 func _ready() -> void:
@@ -37,7 +39,7 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("Left", "Right", "Up", "Down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction and Input.is_action_pressed("sprint"):
+	if direction and Input.is_action_pressed("sprint") and pushing == false:
 		
 		direction = lerp(last_direction, direction, turn_speed)
 		gnome.rotation.y = lerp_angle(gnome.rotation.y, atan2(velocity.x, velocity.z), lerp_speed)
@@ -47,14 +49,18 @@ func _physics_process(delta: float) -> void:
 		
 		last_direction = direction
 	elif direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = direction.x * speed
+		velocity.z = direction.z * speed
 		gnome.rotation.y = lerp_angle(gnome.rotation.y, atan2(velocity.x, velocity.z), lerp_speed)
 		
 		last_direction = direction
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.z = move_toward(velocity.z, 0, speed)
 		
 	
 	move_and_slide()
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	pushing = true
