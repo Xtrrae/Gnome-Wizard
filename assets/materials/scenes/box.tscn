@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4qt4ggnrii1r"]
+
+[ext_resource type="Script" uid="uid://bfu61mc6ianrs" path="res://scenes/box.gd" id="1_3inec"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3inec"]
+rough = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_on5l8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3inec"]
+
+[node name="Box" type="RigidBody3D" groups=["pushable"]]
+collision_layer = 2
+mass = 50.0
+physics_material_override = SubResource("PhysicsMaterial_3inec")
+script = ExtResource("1_3inec")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_on5l8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_3inec")

@@ -1,6 +1,6 @@
-[gd_scene load_steps=44 format=3 uid="uid://ba8efah21npjl"]
+[gd_scene load_steps=44 format=3 uid="uid://b0r3l4o4y141r"]
 
-[ext_resource type="Script" uid="uid://vegipqhk1m0f" path="res://scripts/fireball.gd" id="1_71t8j"]
+[ext_resource type="Script" uid="uid://culosb13vao52" path="res://scripts/fireball.gd" id="1_71t8j"]
 [ext_resource type="Texture2D" uid="uid://bm4c4ood1ncnx" path="res://assets/fireballs/fireball_high_speed_side_small/imgs/img_0.png" id="1_vs8bd"]
 [ext_resource type="Texture2D" uid="uid://cqef2g08b4nvx" path="res://assets/fireballs/fireball_high_speed_side_small/imgs/img_1.png" id="2_71t8j"]
 [ext_resource type="Texture2D" uid="uid://c1t5vbqdtkr2n" path="res://assets/fireballs/fireball_high_speed_side_small/imgs/img_2.png" id="3_xhs1m"]
@@ -178,6 +178,7 @@ script = ExtResource("1_71t8j")
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0167813, 0.58593583, 0)
 sprite_frames = SubResource("SpriteFrames_xhs1m")
+autoplay = "default"
 frame_progress = 0.016548447
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -4,7 +4,8 @@ extends CharacterBody3D
 @onready var hitbox: CollisionShape3D = $hitbox
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var cam: Camera3D = $cam
-@onready var ray_cast_3d: RayCast3D = $RayCast3D
+@onready var main = self.get_parent()
+@onready var projectile = load("res://scenes/fireball.tscn")
 
 var last_direction
 var lerp_speed = 0.08
@@ -57,10 +58,21 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
+	
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
 		
 	
 	move_and_slide()
 
+func shoot():
+	
+	var instance = projectile.instantiate()
+	instance.dir = rotation
+	instance.spawnPos = self.global_position
+	instance.spawnRot.x = gnome.rotation.x
+	instance.spawnRot.z = gnome.rotation.z
+	main.add_child.call_deferred(instance)
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	pushing = true

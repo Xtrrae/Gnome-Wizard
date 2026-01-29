@@ -18,6 +18,12 @@ uniform float specular_strength : hint_range(0.0f, 1.0f) = 1.0f;
 uniform float specular_shininess : hint_range(0.0f, 32.0f) = 16.0f;
 uniform sampler2D specular_map : source_color;
 
+uniform bool use_metallic = true;
+uniform float metallic_strength : hint_range(0.0f, 1.0f) = 1.0f;
+uniform float metallic_shininess : hint_range(0.0f, 32.0f) = 16.0f;
+uniform sampler2D metallic_map : source_color;
+uniform sampler2D normal_texture;
+
 uniform bool use_rim = true;
 uniform float rim_width : hint_range(0.0f, 16.0f) = 8.0f;
 uniform vec4 rim_color : source_color = vec4(1.0f);
@@ -27,6 +33,8 @@ uniform sampler2D ramp : source_color;
 
 uniform bool use_borders = false;
 uniform float border_width = 0.01f;
+
+
 
 varying vec3 vertex_pos;
 varying vec3 normal;
@@ -41,7 +49,12 @@ void vertex() {
 }
 
 void fragment() {
+	vec4 texture_normal = texture(normal_texture, UV);
+	
+	NORMAL.rgb = texture_normal.rgb;
 	ALBEDO = albedo.rgb * texture(albedo_texture, UV).rgb;
+	
+	
 }
 
 void light() {
@@ -91,6 +104,7 @@ void light() {
 								* attenuation;
 		specular_amount = split_specular(specular_amount);
 		SPECULAR_LIGHT += specular_strength * specular_amount * LIGHT_COLOR;
+		
 	}
 
 	// Simple rim lighting.

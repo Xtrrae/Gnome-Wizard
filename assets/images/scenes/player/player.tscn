@@ -1,0 +1,119 @@
+[gd_scene load_steps=12 format=3 uid="uid://ck8q5movsdlbw"]
+
+[ext_resource type="Script" uid="uid://b2w0eqkf6i10h" path="res://scripts/player/player.gd" id="1_8afob"]
+[ext_resource type="Script" uid="uid://bnayoc35hukpp" path="res://scripts/player/cam.gd" id="2_dovo2"]
+[ext_resource type="Script" uid="uid://bskdfx42qvnwp" path="res://scripts/player/hitbox.gd" id="2_gmlin"]
+[ext_resource type="PackedScene" uid="uid://mui71wyyjmo3" path="res://assets/Untitled.gltf" id="3_lvxji"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p47bc"]
+size = Vector3(0.802124, 0.6201782, 0.5621948)
+
+[sub_resource type="Animation" id="Animation_dovo2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [55.0]
+}
+
+[sub_resource type="Animation" id="Animation_8afob"]
+resource_name = "zoom"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.22531305),
+"update": 0,
+"values": [75.0, 55.0]
+}
+
+[sub_resource type="Animation" id="Animation_lvxji"]
+resource_name = "zoom_cam_shake"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.06666667, 0.4, 0.8, 1),
+"transitions": PackedFloat32Array(0.2871747, 2.143547, 0.6372802, 2.828427),
+"update": 0,
+"values": [55.0, 56.0, 56.0, 58.0]
+}
+
+[sub_resource type="Animation" id="Animation_gmlin"]
+resource_name = "zoom_pan"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [55.0, 75.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lvxji"]
+_data = {
+&"RESET": SubResource("Animation_dovo2"),
+&"zoom": SubResource("Animation_8afob"),
+&"zoom_cam_shake": SubResource("Animation_lvxji"),
+&"zoom_pan": SubResource("Animation_gmlin")
+}
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lvxji"]
+height = 0.89575195
+radius = 0.5600586
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_8afob")
+
+[node name="hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1362915, 0.43953907, 0.0013122559)
+shape = SubResource("BoxShape3D_p47bc")
+script = ExtResource("2_gmlin")
+
+[node name="gnome" parent="." instance=ExtResource("3_lvxji")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+
+[node name="cam" type="Camera3D" parent="." node_paths=PackedStringArray("follow_target", "look_target")]
+transform = Transform3D(1, 0, 0, 0, 0.83808076, 0.5455463, 0, -0.5455463, 0.83808076, 0, 10.544371, 15.7860985)
+top_level = true
+projection = 1
+current = true
+fov = 55.0
+size = 5.3989773
+script = ExtResource("2_dovo2")
+follow_target = NodePath("..")
+look_target = NodePath("..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../cam")
+libraries = {
+&"": SubResource("AnimationLibrary_lvxji")
+}
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.552124, 0)
+shape = SubResource("CylinderShape3D_lvxji")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

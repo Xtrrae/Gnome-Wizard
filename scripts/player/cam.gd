@@ -3,7 +3,7 @@ extends Camera3D
 @export var follow_target: Node3D
 @export var look_target: Node3D
 
-var lerp_speed = 0.009
+var lerp_speed = 0.05
 var zoom = 5.0
 var pan = 12.0
 var default_fov = 9.0

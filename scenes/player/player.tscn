@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://mui71wyyjmo3" path="res://assets/Untitled.gltf" id="3_lvxji"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p47bc"]
-size = Vector3(0.802124, 0.6201782, 0.5621948)
+size = Vector3(0.88062286, 0.69277954, 0.6576996)
 
 [sub_resource type="Animation" id="Animation_dovo2"]
 length = 0.001
@@ -84,7 +84,7 @@ radius = 0.5600586
 script = ExtResource("1_8afob")
 
 [node name="hitbox" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1362915, 0.43953907, 0.0013122559)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1540947, 0.47583973, 0.010475159)
 shape = SubResource("BoxShape3D_p47bc")
 script = ExtResource("2_gmlin")
 
