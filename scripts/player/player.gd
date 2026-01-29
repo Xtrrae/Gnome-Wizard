@@ -59,8 +59,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 	
-	if Input.is_action_just_pressed("shoot"):
-		shoot()
 		
 	
 	move_and_slide()
@@ -75,4 +73,5 @@ func shoot():
 	main.add_child.call_deferred(instance)
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	pushing = true
+	if body.is_in_group("pushable"):
+		print("y")

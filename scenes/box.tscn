@@ -13,7 +13,7 @@ height = 1.0941162
 height = 1.2281494
 radius = 0.6015625
 
-[node name="Box" type="RigidBody3D" groups=["pushable"]]
+[node name="Box" type="RigidBody3D"]
 collision_layer = 2
 mass = 50.0
 physics_material_override = SubResource("PhysicsMaterial_3inec")

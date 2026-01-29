@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://dyjtpgeqoscit"]
+[gd_scene load_steps=14 format=3 uid="uid://dyjtpgeqoscit"]
 
 [ext_resource type="Material" uid="uid://d0hyi5n6ng25w" path="res://assets/demo/assets/materials/M_rock23_black_tp.tres" id="1_tbgi4"]
 [ext_resource type="Shader" uid="uid://c6e71lu3ebd68" path="res://shaders/main.gdshader" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://ck8q5movsdlbw" path="res://scenes/player/player.tscn" id="3_o6xl0"]
 [ext_resource type="ArrayMesh" uid="uid://r2imjo7o2734" path="res://assets/stylizedGrassMeshes/grass2.res" id="4_tipki"]
 [ext_resource type="PackedScene" uid="uid://b4qt4ggnrii1r" path="res://scenes/box.tscn" id="5_85g3d"]
-[ext_resource type="PackedScene" uid="uid://b0r3l4o4y141r" path="res://scenes/fireball.tscn" id="6_tefeu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -146,6 +145,3 @@ multimesh = SubResource("MultiMesh_lquwl")
 
 [node name="Box" parent="." instance=ExtResource("5_85g3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 0)
-
-[node name="fireball" parent="." instance=ExtResource("6_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5930271, 3.9777267, -3.741726)
