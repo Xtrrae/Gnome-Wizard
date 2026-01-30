@@ -13,8 +13,8 @@ dest_files=["res://.godot/imported/Untitled.gltf-28f82202d677fc87c3f3036bd0990d2
 
 [params]
 
-nodes/root_type=""
-nodes/root_name=""
+nodes/root_type="Node3D"
+nodes/root_name="gnome"
 nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0

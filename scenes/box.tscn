@@ -8,13 +8,15 @@ rough = true
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ks2v0"]
 height = 1.0941162
+radius = 0.51416016
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_c2ln5"]
-height = 1.2281494
-radius = 0.6015625
+height = 0.99121094
+radius = 0.57910156
 
-[node name="Box" type="RigidBody3D"]
+[node name="Box" type="RigidBody3D" groups=["push"]]
 collision_layer = 2
+collision_mask = 6
 mass = 50.0
 physics_material_override = SubResource("PhysicsMaterial_3inec")
 script = ExtResource("1_3inec")
@@ -27,10 +29,11 @@ shape = SubResource("CylinderShape3D_ks2v0")
 transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, 0, 0, 0)
 mesh = ExtResource("2_ks2v0")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="pushDetection" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04498291, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pushDetection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0043945313, 0)
 shape = SubResource("CylinderShape3D_c2ln5")
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="pushDetection" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="pushDetection" to="." method="_on_area_3d_body_exited"]

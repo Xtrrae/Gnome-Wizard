@@ -12,5 +12,15 @@ func _process(delta: float) -> void:
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("impact"):
-		print("y")
+	if body.is_in_group("player"):
+		body.speed = 4.0 
+		body.pushing = true
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		body.speed = 5.0
+		body.pushing = false
+
+
+func _on_player_on_top_detection_body_entered(body: Node3D) -> void:
+	pass # Replace with function body.

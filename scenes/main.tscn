@@ -12,9 +12,11 @@ ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
 [sub_resource type="Sky" id="Sky_ig7tw"]
 sky_material = SubResource("ProceduralSkyMaterial_7dm0k")
+process_mode = 1
 
 [sub_resource type="Environment" id="Environment_0xm2m"]
 background_mode = 2
+background_energy_multiplier = 1.5
 sky = SubResource("Sky_ig7tw")
 tonemap_mode = 2
 
@@ -110,6 +112,8 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5999988, 5.244414, -6.10598)
 material_override = SubResource("ShaderMaterial_tbgi4")
 use_collision = true
+collision_layer = 7
+collision_mask = 4
 size = Vector3(20.4, 12.137329, 2.036377)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="map/wall"]
@@ -121,6 +125,8 @@ height = 3.8888917
 [node name="Grass" type="CSGBox3D" parent="map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6452036, 0.06366348, -6.897476)
 use_collision = true
+collision_layer = 3
+collision_mask = 3
 size = Vector3(35.93799, 1, 61.269653)
 material = SubResource("ShaderMaterial_1bvp3")
 

@@ -13,6 +13,8 @@ var sprint_speed = 7.5
 var turn_speed = 0.04
 var pushing = false;
 var speed = 5.0
+var on_ground = true
+var on_box = false
 
 const BASE_SPEED = 5.0
 const JUMP_VELOCITY = 6.0
@@ -22,7 +24,7 @@ func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	
+	on_ground = is_on_floor()
 	# Add the gravity.
 	if not is_on_floor():
 		
@@ -33,7 +35,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 		
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and (on_ground or on_box):
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -72,6 +74,17 @@ func shoot():
 	instance.spawnRot.z = gnome.rotation.z
 	main.add_child.call_deferred(instance)
 
+
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("pushable"):
-		print("y")
+	if body.is_in_group("push"):
+		body.collision_mask = 1
+		body.collision_layer = 1
+		on_box = true	
+
+
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	if body.is_in_group("push"):
+		body.collision_mask = 2
+		body.collision_layer = 2
+		on_box = false
