@@ -7,7 +7,7 @@ extends CharacterBody3D
 @onready var main = self.get_parent()
 @onready var projectile = load("res://scenes/fireball.tscn")
 
-var last_direction
+var last_direction = Vector3(0.0, 0.0, 7.0)
 var lerp_speed = 0.08
 var sprint_speed = 7.5
 var turn_speed = 0.04
@@ -15,6 +15,8 @@ var pushing = false;
 var speed = 5.0
 var on_ground = true
 var on_box = false
+var direction = Vector3(0.0, 0.0, 7.0)
+var current_rot : float
 
 const BASE_SPEED = 5.0
 const JUMP_VELOCITY = 6.0
@@ -24,8 +26,10 @@ func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
+	
 	on_ground = is_on_floor()
 	# Add the gravity.
+	
 	if not is_on_floor():
 		
 		if Input.is_action_just_released("jump"):
@@ -41,7 +45,7 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("Left", "Right", "Up", "Down")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction and Input.is_action_pressed("sprint") and pushing == false:
 		
 		direction = lerp(last_direction, direction, turn_speed)
@@ -54,13 +58,16 @@ func _physics_process(delta: float) -> void:
 	elif direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
-		gnome.rotation.y = lerp_angle(gnome.rotation.y, atan2(velocity.x, velocity.z), lerp_speed)
-		
+		current_rot = lerp_angle(gnome.rotation.y, atan2(velocity.x, velocity.z), lerp_speed)
+		gnome.rotation.y = current_rot
 		last_direction = direction
+		
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 	
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
 		
 	
 	move_and_slide()
@@ -68,10 +75,10 @@ func _physics_process(delta: float) -> void:
 func shoot():
 	
 	var instance = projectile.instantiate()
-	instance.dir = rotation
-	instance.spawnPos = self.global_position
-	instance.spawnRot.x = gnome.rotation.x
-	instance.spawnRot.z = gnome.rotation.z
+	instance.dir = current_rot
+	
+	instance.spawnPos = global_position + (last_direction * 2) + Vector3(0, 0.7, 0)
+	instance.spawnRot.y = gnome.rotation.y
 	main.add_child.call_deferred(instance)
 
 
@@ -79,7 +86,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("push"):
 		body.collision_mask = 1
 		body.collision_layer = 1
-		on_box = true	
+		on_box = true
 
 
 
