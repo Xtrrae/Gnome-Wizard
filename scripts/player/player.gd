@@ -6,6 +6,8 @@ extends CharacterBody3D
 @onready var cam: Camera3D = $cam
 @onready var main = self.get_parent()
 @onready var projectile = load("res://scenes/fireball.tscn")
+@onready var pivot: Node3D = $pivot
+@onready var node_3d: Node3D = $pivot/Node3D
 
 var last_direction = Vector3(0.0, 0.0, 7.0)
 var lerp_speed = 0.08
@@ -17,6 +19,8 @@ var on_ground = true
 var on_box = false
 var direction = Vector3(0.0, 0.0, 7.0)
 var current_rot : float
+var direction_x : float
+var direction_z : float
 
 const BASE_SPEED = 5.0
 const JUMP_VELOCITY = 6.0
@@ -40,6 +44,7 @@ func _physics_process(delta: float) -> void:
 	
 		
 	if Input.is_action_just_pressed("jump") and (on_ground or on_box):
+
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -60,6 +65,8 @@ func _physics_process(delta: float) -> void:
 		velocity.z = direction.z * speed
 		current_rot = lerp_angle(gnome.rotation.y, atan2(velocity.x, velocity.z), lerp_speed)
 		gnome.rotation.y = current_rot
+		pivot.rotation.y = current_rot
+		
 		last_direction = direction
 		
 	else:
@@ -69,16 +76,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
 		
-	
 	move_and_slide()
 
 func shoot():
 	
 	var instance = projectile.instantiate()
-	instance.dir = current_rot
 	
-	instance.spawnPos = global_position + (last_direction * 2) + Vector3(0, 0.7, 0)
-	instance.spawnRot.y = gnome.rotation.y
+	instance.spawnPos = node_3d.global_position + Vector3.UP
+	instance.spawnRot = current_rot
 	main.add_child.call_deferred(instance)
 
 

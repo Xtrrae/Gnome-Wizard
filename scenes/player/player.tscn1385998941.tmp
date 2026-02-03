@@ -80,7 +80,7 @@ _data = {
 size = Vector3(1.06604, 1, 0.9958496)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lvxji"]
-size = Vector3(0.68315125, 0.816391, 0.2959137)
+size = Vector3(0.9515381, 0.816391, 0.39190674)
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 3
@@ -123,13 +123,8 @@ shape = SubResource("BoxShape3D_75vfm")
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="standOn"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14818573, 0.33875275, -0.017258286)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10284424, 0.33875275, 0.025543213)
 shape = SubResource("BoxShape3D_lvxji")
-
-[node name="pivot" type="Node3D" parent="."]
-
-[node name="Node3D" type="Node3D" parent="pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
 [connection signal="body_entered" from="Push" to="." method="_on_push_body_entered"]
 [connection signal="body_exited" from="Push" to="." method="_on_push_body_exited"]
