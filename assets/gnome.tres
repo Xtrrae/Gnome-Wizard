@@ -1,11 +1,11 @@
-[gd_resource type="ArrayMesh" load_steps=5 format=4 uid="uid://c8q4g5qv1vwpm"]
+[gd_resource type="ArrayMesh" format=4 uid="uid://c8q4g5qv1vwpm"]
 
 [ext_resource type="Shader" uid="uid://c6e71lu3ebd68" path="res://shaders/main.gdshader" id="1_8cfqu"]
 [ext_resource type="Texture2D" uid="uid://brnq1c1r45wsh" path="res://assets/Untitled_0.png" id="1_chv4g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0jqr7"]
 resource_name = "Material.1"
-render_priority = 0
+render_priority = 2
 shader = ExtResource("1_8cfqu")
 shader_parameter/albedo = Color(0.641934, 0.641934, 0.641934, 1)
 shader_parameter/albedo_texture = ExtResource("1_chv4g")
@@ -20,9 +20,9 @@ shader_parameter/specular_shininess = 6.286000298585
 shader_parameter/use_metallic = true
 shader_parameter/metallic_strength = 1.0
 shader_parameter/metallic_shininess = 16.0
-shader_parameter/use_rim = true
+shader_parameter/use_rim = false
 shader_parameter/rim_width = 8.0
-shader_parameter/rim_color = Color(0.27752772, 0.27752772, 0.27752772, 1)
+shader_parameter/rim_color = Color(0.0056611504, 0.0056611514, 0.00566115, 1)
 shader_parameter/use_ramp = false
 shader_parameter/use_borders = false
 shader_parameter/border_width = 0.01

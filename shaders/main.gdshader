@@ -50,8 +50,7 @@ void vertex() {
 
 void fragment() {
 	vec4 texture_normal = texture(normal_texture, UV);
-	
-	NORMAL.rgb = texture_normal.rgb;
+	NORMAL_MAP = texture(normal_texture, UV).rgb;
 	ALBEDO = albedo.rgb * texture(albedo_texture, UV).rgb;
 	
 	

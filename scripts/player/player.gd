@@ -15,6 +15,7 @@ var pushing = false;
 var speed = 5.0
 var on_ground = true
 var on_box = false
+var direction : Vector3
 
 const BASE_SPEED = 5.0
 const JUMP_VELOCITY = 6.0
@@ -41,9 +42,8 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("Left", "Right", "Up", "Down")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction and Input.is_action_pressed("sprint") and pushing == false:
-		
 		direction = lerp(last_direction, direction, turn_speed)
 		gnome.rotation.y = lerp_angle(gnome.rotation.y, atan2(velocity.x, velocity.z), lerp_speed)
 
@@ -61,8 +61,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 	
-		
 	
+	"monitoring"
 	move_and_slide()
 
 func shoot():
@@ -79,7 +79,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("push"):
 		body.collision_mask = 1
 		body.collision_layer = 1
-		on_box = true	
+		on_box = true
 
 
 
