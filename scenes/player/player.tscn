@@ -80,7 +80,11 @@ _data = {
 size = Vector3(1.0485382, 0.5600586, 0.9958496)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lvxji"]
+<<<<<<< HEAD
 size = Vector3(0.7141113, 0.7206955, 0.26330566)
+=======
+size = Vector3(0.68315125, 0.816391, 0.2959137)
+>>>>>>> e5f07fb8c678455440f8a4477c0c409030171abc
 
 [node name="Player" type="CharacterBody3D" unique_id=1418047351 groups=["player"]]
 collision_layer = 3
@@ -92,8 +96,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022368282, 0.26595318, -0.0
 shape = SubResource("BoxShape3D_p47bc")
 script = ExtResource("2_gmlin")
 
+<<<<<<< HEAD
 [node name="gnome" type="MeshInstance3D" parent="." unique_id=44796641]
 transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, -0.10914505, -0.1707064, 7.461813e-09)
+=======
+[node name="gnome" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.095, 0, 0, 0, -4.152582e-09, 0.095, 0, -0.095, -4.152582e-09, 7.545948e-05, -0.0022546947, -1.5199184e-05)
+>>>>>>> e5f07fb8c678455440f8a4477c0c409030171abc
 mesh = ExtResource("3_lvxji")
 
 [node name="cam" type="Camera3D" parent="." unique_id=436284657 node_paths=PackedStringArray("follow_target", "look_target")]
@@ -114,6 +123,7 @@ libraries/ = SubResource("AnimationLibrary_lvxji")
 [node name="Push" type="Area3D" parent="." unique_id=1919162536]
 collision_mask = 2
 
+<<<<<<< HEAD
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Push" unique_id=1029396808]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.033598304, 0.34979248, 0.076538086)
 shape = SubResource("BoxShape3D_75vfm")
@@ -123,7 +133,16 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="standOn" unique_id=952892102]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.039328545, 0.09347305, -0.038757324)
+=======
+[node name="CollisionShape3D" type="CollisionShape3D" parent="standOn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14818573, 0.33875275, -0.017258286)
+>>>>>>> e5f07fb8c678455440f8a4477c0c409030171abc
 shape = SubResource("BoxShape3D_lvxji")
+
+[node name="pivot" type="Node3D" parent="."]
+
+[node name="Node3D" type="Node3D" parent="pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
 [connection signal="body_entered" from="Push" to="." method="_on_push_body_entered"]
 [connection signal="body_shape_entered" from="Push" to="." method="_on_push_body_shape_entered"]

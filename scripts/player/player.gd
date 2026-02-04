@@ -6,8 +6,10 @@ extends CharacterBody3D
 @onready var cam: Camera3D = $cam
 @onready var main = self.get_parent()
 @onready var projectile = load("res://scenes/fireball.tscn")
+@onready var pivot: Node3D = $pivot
+@onready var node_3d: Node3D = $pivot/Node3D
 
-var last_direction
+var last_direction = Vector3(0.0, 0.0, 7.0)
 var lerp_speed = 0.08
 var sprint_speed = 7.5
 var turn_speed = 0.04
@@ -15,7 +17,14 @@ var pushing = false;
 var speed = 5.0
 var on_ground = true
 var on_box = false
+<<<<<<< HEAD
 var direction : Vector3
+=======
+var direction = Vector3(0.0, 0.0, 7.0)
+var current_rot : float
+var direction_x : float
+var direction_z : float
+>>>>>>> e5f07fb8c678455440f8a4477c0c409030171abc
 
 const BASE_SPEED = 5.0
 const JUMP_VELOCITY = 6.0
@@ -25,8 +34,10 @@ func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
+	
 	on_ground = is_on_floor()
 	# Add the gravity.
+	
 	if not is_on_floor():
 		
 		if Input.is_action_just_released("jump"):
@@ -37,6 +48,7 @@ func _physics_process(delta: float) -> void:
 	
 		
 	if Input.is_action_just_pressed("jump") and (on_ground or on_box):
+
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -54,24 +66,32 @@ func _physics_process(delta: float) -> void:
 	elif direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
-		gnome.rotation.y = lerp_angle(gnome.rotation.y, atan2(velocity.x, velocity.z), lerp_speed)
+		current_rot = lerp_angle(gnome.rotation.y, atan2(velocity.x, velocity.z), lerp_speed)
+		gnome.rotation.y = current_rot
+		pivot.rotation.y = current_rot
 		
 		last_direction = direction
+		
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 	
+<<<<<<< HEAD
 	
 	"monitoring"
+=======
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
+		
+>>>>>>> e5f07fb8c678455440f8a4477c0c409030171abc
 	move_and_slide()
 
 func shoot():
 	
 	var instance = projectile.instantiate()
-	instance.dir = rotation
-	instance.spawnPos = self.global_position
-	instance.spawnRot.x = gnome.rotation.x
-	instance.spawnRot.z = gnome.rotation.z
+	
+	instance.spawnPos = node_3d.global_position + Vector3.UP
+	instance.spawnRot = current_rot
 	main.add_child.call_deferred(instance)
 
 

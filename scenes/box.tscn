@@ -13,10 +13,17 @@ radius = 0.45654297
 height = 0.99121094
 radius = 0.5258789
 
+<<<<<<< HEAD
 [node name="Box" type="RigidBody3D" unique_id=1470864045 groups=["push"]]
 collision_layer = 2
 collision_mask = 7
 mass = 100.0
+=======
+[node name="Box" type="RigidBody3D" groups=["push"]]
+collision_layer = 10
+collision_mask = 6
+mass = 50.0
+>>>>>>> e5f07fb8c678455440f8a4477c0c409030171abc
 physics_material_override = SubResource("PhysicsMaterial_3inec")
 script = ExtResource("1_3inec")
 
