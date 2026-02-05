@@ -85,6 +85,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		body.collision_mask = 1
 		body.collision_layer = 1
 		on_box = true
+		print("standing on box")
 
 
 

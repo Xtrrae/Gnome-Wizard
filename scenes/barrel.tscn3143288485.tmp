@@ -25,7 +25,6 @@ transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
 mesh = ExtResource("2_3xw60")
 
 [node name="explostionRange" type="Area3D" parent="." unique_id=1459795593]
-collision_mask = 65
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="explostionRange" unique_id=784502691]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39208984, 0)
