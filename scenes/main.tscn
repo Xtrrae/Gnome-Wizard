@@ -104,13 +104,13 @@ environment = SubResource("Environment_0xm2m")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=706839651]
 transform = Transform3D(-0.9515944, -0.27506393, 0.1371418, 7.089931e-09, 0.44619778, 0.8949343, -0.30735654, 0.8516146, -0.42459932, 0.6, 26.4, -17.9)
-light_color = Color(0.7750634, 0.7750634, 0.7750633, 1)
+light_color = Color(0.3779191, 0.37791878, 0.37791884, 1)
 shadow_enabled = true
 
 [node name="map" type="Node3D" parent="." unique_id=1091592159]
 
 [node name="wall" type="CSGBox3D" parent="map" unique_id=554921597]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5999988, 5.244414, -6.10598)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.12426, 5.244414, -6.10598)
 material_override = SubResource("ShaderMaterial_tbgi4")
 use_collision = true
 collision_layer = 15
@@ -143,7 +143,7 @@ height = 1.6816406
 material = SubResource("ShaderMaterial_272bh")
 
 [node name="Player" parent="." unique_id=1303120245 instance=ExtResource("3_o6xl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.297, 2.05, -2.494)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4732447, 2.05, -26.219227)
 
 [node name="Grass" type="MultiMeshInstance3D" parent="." unique_id=800849484]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5230436, 0.04682064, 1.5567093)
@@ -151,7 +151,7 @@ cast_shadow = 0
 multimesh = SubResource("MultiMesh_lquwl")
 
 [node name="barrel" parent="." unique_id=1021782119 instance=ExtResource("3_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7716756, 1.797497, -0.37948608)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7716756, 1.797497, -20.630848)
 
 [node name="barrel2" parent="." unique_id=164362181 instance=ExtResource("3_tbgi4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.523054, 2.5493338, -0.20775604)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8822708, 2.5493338, -22.346247)

@@ -19,7 +19,6 @@ func _ready() -> void:
 	global_position = spawnPos
 	rotation.y = spawnRot
 	fire.emitting = true
-	smoke.emitting = true
 	
 func _physics_process(delta: float) -> void:
 	velocity = global_basis * Vector3.BACK * SPEED
@@ -27,14 +26,12 @@ func _physics_process(delta: float) -> void:
 	
 	if hit and not animation_player.is_playing():
 		queue_free()
-		hit = false
-		
 	move_and_slide()
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	rot_speed = Vector3.ZERO
-	hit = true
+	animation_player.play("explosion")
 	if body.is_in_group("push"):
 		body.explode = true
 		sparks.emitting = true
@@ -45,6 +42,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		fire.emitting = true
 		smoke.emitting = true
 		quick_flash.emitting = true
+	hit = true
 
 func _on_timer_timeout() -> void:
 	self.queue_free()
