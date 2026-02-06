@@ -71,7 +71,7 @@ _data = {
 }
 
 [node name="fireball" type="CharacterBody3D" unique_id=1626109877 groups=["Impact"]]
-collision_mask = 18
+collision_mask = 82
 script = ExtResource("1_71t8j")
 rot_speed = Vector3(0.1, 0.1, 0.1)
 

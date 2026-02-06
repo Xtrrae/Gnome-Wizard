@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bmboiqvoaqicb"]
+
+[ext_resource type="Script" uid="uid://c00ex5koigtru" path="res://scenes/level_select.gd" id="1_3shnc"]
+
+[node name="LevelSelect" type="Control" unique_id=1291531011]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3shnc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2127401156]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -120.5
+offset_bottom = 120.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="level1" type="Button" parent="VBoxContainer" unique_id=1491483157]
+layout_mode = 2
+text = "Level 1"
+
+[node name="level2" type="Button" parent="VBoxContainer" unique_id=39468257]
+layout_mode = 2
+text = "Level 2"
+
+[node name="level3" type="Button" parent="VBoxContainer" unique_id=1522057513]
+layout_mode = 2
+text = "Level 3"
+
+[node name="level4" type="Button" parent="VBoxContainer" unique_id=1698277796]
+layout_mode = 2
+text = "Level 4"
+
+[node name="level5" type="Button" parent="VBoxContainer" unique_id=1202538863]
+layout_mode = 2
+text = "Level 5"
+
+[node name="level6" type="Button" parent="VBoxContainer" unique_id=1697417931]
+layout_mode = 2
+text = "Level 6"
+
+[node name="level7" type="Button" parent="VBoxContainer" unique_id=1011613820]
+layout_mode = 2
+text = "Level 7"
+
+[connection signal="pressed" from="VBoxContainer/level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/level4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="VBoxContainer/level5" to="." method="_on_level_5_pressed"]
+[connection signal="pressed" from="VBoxContainer/level6" to="." method="_on_level_6_pressed"]
+[connection signal="pressed" from="VBoxContainer/level7" to="." method="_on_level_7_pressed"]

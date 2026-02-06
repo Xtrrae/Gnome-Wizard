@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://ck8q5movsdlbw"]
 
 [ext_resource type="Script" uid="uid://b2w0eqkf6i10h" path="res://scripts/player/player.gd" id="1_8afob"]
-[ext_resource type="Script" uid="uid://bnayoc35hukpp" path="res://scripts/player/cam.gd" id="2_dovo2"]
 [ext_resource type="Script" uid="uid://bskdfx42qvnwp" path="res://scripts/player/hitbox.gd" id="2_gmlin"]
 [ext_resource type="ArrayMesh" uid="uid://c8q4g5qv1vwpm" path="res://assets/gnome.tres" id="3_lvxji"]
 
@@ -96,20 +95,8 @@ script = ExtResource("2_gmlin")
 transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, -0.10914505, -0.1707064, 7.461813e-09)
 mesh = ExtResource("3_lvxji")
 
-[node name="cam" type="Camera3D" parent="." unique_id=436284657 node_paths=PackedStringArray("follow_target", "look_target")]
-transform = Transform3D(1, 0, 0, 0, 0.82472885, 0.56552863, 0, -0.56552863, 0.82472885, 0, 2.7367482, 3.4418197)
-top_level = true
-doppler_tracking = 2
-projection = 1
-current = true
-fov = 55.0
-size = 4.358
-script = ExtResource("2_dovo2")
-follow_target = NodePath("..")
-look_target = NodePath("..")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=386164340]
-root_node = NodePath("../cam")
+root_node = NodePath("")
 libraries/ = SubResource("AnimationLibrary_lvxji")
 
 [node name="Push" type="Area3D" parent="." unique_id=1919162536]

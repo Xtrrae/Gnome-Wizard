@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://doyym4hk11guf"]
+
+[ext_resource type="Script" uid="uid://cvgnfu7i7lwc" path="res://scenes/player/camera_pivot.gd" id="1_bmim4"]
+
+[node name="camera_pivot" type="Node3D" unique_id=535566052]
+script = ExtResource("1_bmim4")
+
+[node name="cam" type="Camera3D" parent="." unique_id=1271790586]
+transform = Transform3D(1, 0, 0, 0, 0.8247287, 0.5655286, 0, -0.5655286, 0.8247287, 0, 2.7367482, 3.4418197)
+top_level = true
+doppler_tracking = 2
+projection = 1
+current = true
+fov = 55.0
+size = 4.358

@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+@export carmera_sensitivity = 0.004
+
 @onready var gnome: Node3D = $gnome
 @onready var hitbox: CollisionShape3D = $hitbox
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -71,7 +73,7 @@ func _physics_process(delta: float) -> void:
 		shoot()
 	
 	if Input.is_action_just_pressed("pause"):
-		
+		pass
 	
 	move_and_slide()
 
