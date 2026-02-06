@@ -69,7 +69,10 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
+	
+	if Input.is_action_just_pressed("pause"):
 		
+	
 	move_and_slide()
 
 func shoot():

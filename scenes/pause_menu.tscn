@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://debxmlccguwim"]
+
+[ext_resource type="Script" uid="uid://chwyhw1rcyrbk" path="res://scenes/pause_menu.gd" id="1_n87rw"]
+
+[node name="PauseMenu" type="Control" unique_id=1729572211]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n87rw")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=209808283]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=782958935]
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="." unique_id=1777778104]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Quit" type="Button" parent="." unique_id=1596858288]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
