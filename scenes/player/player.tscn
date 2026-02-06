@@ -80,7 +80,7 @@ _data = {
 size = Vector3(1.0485382, 0.5600586, 0.9958496)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lvxji"]
-size = Vector3(0.7141113, 0.7206955, 0.26330566)
+size = Vector3(0.7141113, 0.10058212, 0.4273529)
 
 [node name="Player" type="CharacterBody3D" unique_id=1418047351 groups=["player"]]
 collision_layer = 3
@@ -97,12 +97,13 @@ transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, 0.1, 0, -0.1, -4.371139e-09
 mesh = ExtResource("3_lvxji")
 
 [node name="cam" type="Camera3D" parent="." unique_id=436284657 node_paths=PackedStringArray("follow_target", "look_target")]
-transform = Transform3D(1, 0, 0, 0, 0.83808076, 0.5455463, 0, -0.5455463, 0.83808076, 0, 10.544371, 15.7860985)
+transform = Transform3D(1, 0, 0, 0, 0.82472885, 0.56552863, 0, -0.56552863, 0.82472885, 0, 2.7367482, 3.4418197)
 top_level = true
+doppler_tracking = 2
 projection = 1
 current = true
 fov = 55.0
-size = 5.3989773
+size = 4.358
 script = ExtResource("2_dovo2")
 follow_target = NodePath("..")
 look_target = NodePath("..")
@@ -122,7 +123,7 @@ shape = SubResource("BoxShape3D_75vfm")
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="standOn" unique_id=952892102]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.039328545, 0.09347305, -0.038757324)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.039328545, -0.21658364, -0.036189556)
 shape = SubResource("BoxShape3D_lvxji")
 
 [node name="pivot_center" type="Node3D" parent="." unique_id=252773372]
