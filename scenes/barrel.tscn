@@ -12,9 +12,8 @@ height = 0.99121094
 radius = 0.5258789
 
 [node name="barrel" type="CharacterBody3D" unique_id=1021782119 groups=["push"]]
-collision_layer = 0
-collision_mask = 6
-motion_mode = 1
+collision_layer = 18
+collision_mask = 7
 script = ExtResource("1_eksfq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1600440658]
