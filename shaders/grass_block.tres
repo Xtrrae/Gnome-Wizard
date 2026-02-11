@@ -1,25 +1,7 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://cws5r2u1mxqs8"]
 
-[ext_resource type="Shader" uid="uid://c6e71lu3ebd68" path="res://shaders/main.gdshader" id="1_wo2fg"]
+[ext_resource type="Shader" uid="uid://d2pxrch4crrap" path="res://assets/BinbunGrass/src/shader/ground.gdshader" id="1_wo2fg"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_wo2fg")
-shader_parameter/albedo = Color(0.1593869, 0.38885155, 0.13073674, 1)
-shader_parameter/clamp_diffuse_to_max = false
-shader_parameter/cuts = 2
-shader_parameter/wrap = 0.0
-shader_parameter/steepness = 1.0
-shader_parameter/use_attenuation = true
-shader_parameter/use_specular = false
-shader_parameter/specular_strength = 0.0
-shader_parameter/specular_shininess = 0.0
-shader_parameter/use_metallic = false
-shader_parameter/metallic_strength = 1.0
-shader_parameter/metallic_shininess = 16.0
-shader_parameter/use_rim = true
-shader_parameter/rim_width = 16.0
-shader_parameter/rim_color = Color(0, 0, 0, 1)
-shader_parameter/use_ramp = false
-shader_parameter/use_borders = true
-shader_parameter/border_width = 0.01

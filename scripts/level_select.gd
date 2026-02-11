@@ -20,11 +20,11 @@ func _on_level_2_pressed() -> void:
 
 
 func _on_level_3_pressed() -> void:
-	pass # Replace with function body.
+		get_tree().change_scene_to_file("res://scenes/levels/level3.tscn")
 
 
 func _on_level_4_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://assets/BinbunGrass/main.tsc")
 
 
 func _on_level_5_pressed() -> void:

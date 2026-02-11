@@ -118,12 +118,6 @@ shape = SubResource("BoxShape3D_lvxji")
 [node name="pivot_forward" type="Node3D" parent="pivot_center" unique_id=40345167]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28796315, 0.9828421)
 
-[node name="RayCast3D" type="RayCast3D" parent="pivot_center" unique_id=1582326355]
-target_position = Vector3(0, 0, 1.72)
-collision_mask = 128
-hit_from_inside = true
-debug_shape_thickness = 3
-
 [connection signal="body_entered" from="Push" to="." method="_on_push_body_entered"]
 [connection signal="body_exited" from="Push" to="." method="_on_push_body_exited"]
 [connection signal="body_entered" from="standOn" to="." method="_on_area_3d_body_entered"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://doyym4hk11guf"]
 
-[ext_resource type="Script" uid="uid://cvgnfu7i7lwc" path="res://scenes/player/camera_pivot.gd" id="1_bmim4"]
+[ext_resource type="Script" uid="uid://cvgnfu7i7lwc" path="res://scripts/camera_pivot.gd" id="1_bmim4"]
 
 [node name="camera_pivot" type="Node3D" unique_id=535566052]
 script = ExtResource("1_bmim4")

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bk2te4oxquivp" path="res://scenes/barrel.tscn" id="5_u3awl"]
 [ext_resource type="PackedScene" uid="uid://ceoroyscdqopb" path="res://scenes/breakableWall.tscn" id="6_2ku1j"]
 [ext_resource type="PackedScene" uid="uid://dmmwselun6166" path="res://scenes/WinGate.tscn" id="7_f31uk"]
+[ext_resource type="Script" uid="uid://cvgnfu7i7lwc" path="res://scripts/camera_pivot.gd" id="8_8a7m2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -112,10 +113,10 @@ shadow_enabled = true
 [node name="map" type="Node3D" parent="." unique_id=1091592159]
 
 [node name="wall" type="CSGBox3D" parent="map" unique_id=554921597]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.12426, 5.244414, -6.10598)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8992195, 5.244414, -30.225567)
 material_override = SubResource("ShaderMaterial_tbgi4")
 use_collision = true
-collision_layer = 15
+collision_layer = 143
 collision_mask = 4
 size = Vector3(20.4, 12.137329, 2.036377)
 
@@ -151,13 +152,25 @@ material = SubResource("ShaderMaterial_272bh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4732447, 2.05, -26.219227)
 
 [node name="barrel" parent="." unique_id=1021782119 instance=ExtResource("5_u3awl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7716756, 1.797497, -20.630848)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7716756, 1.797497, -23.126505)
 
 [node name="barrel2" parent="." unique_id=164362181 instance=ExtResource("5_u3awl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8822708, 2.5493338, -22.346247)
 
 [node name="CSGMesh3D" parent="." unique_id=774595120 instance=ExtResource("6_2ku1j")]
 transform = Transform3D(1, 0, 0, 0, 7.463062, 0, 0, 0, 21.624128, -6.651042, 1.063664, -30.435188)
+collision_layer = 223
 
 [node name="Node3D" parent="." unique_id=1191173673 instance=ExtResource("7_f31uk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.830614, 1.563663, -31.53817)
+
+[node name="Camera_pivot" type="Node3D" parent="." unique_id=1823469416]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -31.550034)
+script = ExtResource("8_8a7m2")
+camera_speed = 0.5
+zoom_speed = 0.5
+
+[node name="Camera3D" type="Camera3D" parent="Camera_pivot" unique_id=873963559]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.7071068, 0, -0.7071068, 0.70710677, 0, 8.353881, 10.423485)
+projection = 1
+size = 12.284
