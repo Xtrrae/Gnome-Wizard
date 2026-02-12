@@ -11,6 +11,8 @@ extends CharacterBody3D
 @onready var pivot_center: Node3D = $pivot_center
 @onready var pivot_forward: Node3D = $pivot_center/pivot_forward
 @onready var ray_cast_3d: RayCast3D = $pivot_center/RayCast3D
+@onready var step_up: RayCast3D = $pivot_center/StepUp
+
 
 var last_direction
 var lerp_speed = 0.08
@@ -27,6 +29,7 @@ var barrel : Array
 
 const BASE_SPEED = 5.0
 const JUMP_VELOCITY = 6.0
+const STEP_VELOCITY = 2.5
 
 func _ready() -> void:
 	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -38,6 +41,7 @@ func _physics_process(delta: float) -> void:
 	if not (on_box or on_ground):
 		
 		if Input.is_action_just_released("jump"):
+			print(pushing)
 			velocity = lerp(velocity, get_gravity() * delta * 50, 0.3)
 		else:
 			velocity += get_gravity() * delta
@@ -47,7 +51,7 @@ func _physics_process(delta: float) -> void:
 			barrel.get(i).collision_mask = 1
 			barrel.get(i).collision_layer = 1
 	
-	if Input.is_action_just_pressed("jump") and (on_ground or on_box):
+	if Input.is_action_just_pressed("jump") and (on_ground or on_box) and not pushing:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -96,7 +100,6 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		body.collision_mask = 1
 		body.collision_layer = 1
 		on_box = true
-		print(on_box)
 
 
 
@@ -111,7 +114,7 @@ func _on_push_body_entered(body: Node3D) -> void:
 		barrel.append(body)
 		speed = 4.0
 		pushing = true
-		
+
 func _on_push_body_exited(body: Node3D) -> void:
 	if body.is_in_group("push"):
 		barrel.erase(body)

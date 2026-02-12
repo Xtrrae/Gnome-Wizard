@@ -2,9 +2,10 @@
 
 [sub_resource type="Gradient" id="Gradient_0cusm"]
 offsets = PackedFloat32Array(0.166667, 0.5, 0.833333)
-colors = PackedColorArray(0.658824, 0.792157, 0.345098, 1, 0.458824, 0.654902, 0.262745, 1, 0.27451, 0.509804, 0.196078, 1)
+colors = PackedColorArray(0, 0.07058824, 0, 1, 0.052576594, 0.091668494, 0.015070412, 1, 0.03412162, 0.13142315, 0.0021694335, 1)
 metadata/_snap_enabled = true
 metadata/_snap_count = 12
 
 [resource]
 gradient = SubResource("Gradient_0cusm")
+fill_from = Vector2(0.51329786, 0.48138297)

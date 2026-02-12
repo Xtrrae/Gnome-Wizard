@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhd68ysbpx6a"]
 
-[ext_resource type="Material" uid="uid://bra6ug2wjmj0j" path="res://assets/BinbunGrass/src/materials/grass_01/grass_ground_01.tres" id="1_frjko"]
+[ext_resource type="Material" uid="uid://bvcie6nuke58c" path="res://assets/Grass_material.tres" id="1_frjko"]
 [ext_resource type="ArrayMesh" uid="uid://r2imjo7o2734" path="res://assets/stylizedGrassMeshes/grass2.res" id="2_frjko"]
 [ext_resource type="PackedScene" uid="uid://ck8q5movsdlbw" path="res://scenes/player/player.tscn" id="3_f7rt6"]
 [ext_resource type="PackedScene" uid="uid://bk2te4oxquivp" path="res://scenes/barrel.tscn" id="4_8w0pe"]
@@ -42,7 +42,7 @@ size = Vector3(35.93799, 1, 23.454132)
 material = ExtResource("1_frjko")
 
 [node name="Grass" type="MultiMeshInstance3D" parent="Grass" unique_id=685441498]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12215996, -0.016842842, 8.4541855)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.128212, -0.016842842, 8.4541855)
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_hadiw")
 
@@ -75,5 +75,5 @@ transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 6.073
 projection = 1
 size = 12.284
 
-[node name="button" parent="." unique_id=351347304 instance=ExtResource("6_frjko")]
-transform = Transform3D(1.755, 0, 0, 0, 1.755, 0, 0, 0, 1.755, 4.8220496, 1.2357768, 8.50192)
+[node name="button" parent="." unique_id=1266923062 instance=ExtResource("6_frjko")]
+transform = Transform3D(1.755, 0, 0, 0, 1.755, 0, 0, 0, 1.755, 4.8220496, 0.5585581, 8.50192)

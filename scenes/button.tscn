@@ -14,7 +14,7 @@ shader_parameter/steepness = 1.0
 shader_parameter/use_attenuation = true
 shader_parameter/use_specular = true
 shader_parameter/specular_strength = 1.0
-shader_parameter/specular_shininess = 1.5820000751449999
+shader_parameter/specular_shininess = 1.582000075145
 shader_parameter/use_metallic = true
 shader_parameter/metallic_strength = 1.0
 shader_parameter/metallic_shininess = 16.0
@@ -88,8 +88,10 @@ _data = {
 &"press_up": SubResource("Animation_1bdt2")
 }
 
-[node name="button" type="StaticBody3D" unique_id=351347304]
+[node name="button" type="StaticBody3D" unique_id=351347304 groups=["step_up"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_rhj8v")
 
 [node name="button" type="MeshInstance3D" parent="." unique_id=758828311]
@@ -112,6 +114,7 @@ shape = SubResource("BoxShape3D_1bdt2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1999454576]
 libraries/ = SubResource("AnimationLibrary_8m7bo")
+autoplay = &"press_up"
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
