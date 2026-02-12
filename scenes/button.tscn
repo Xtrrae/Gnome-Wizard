@@ -14,7 +14,7 @@ shader_parameter/steepness = 1.0
 shader_parameter/use_attenuation = true
 shader_parameter/use_specular = true
 shader_parameter/specular_strength = 1.0
-shader_parameter/specular_shininess = 1.5820000751449999
+shader_parameter/specular_shininess = 1.582000075145
 shader_parameter/use_metallic = true
 shader_parameter/metallic_strength = 1.0
 shader_parameter/metallic_shininess = 16.0
@@ -30,6 +30,10 @@ material = SubResource("ShaderMaterial_rhj8v")
 
 [sub_resource type="BoxMesh" id="BoxMesh_i7y4x"]
 size = Vector3(1, 0.095, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rhj8v"]
+height = 0.0793457
+radius = 0.41845703
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1bdt2"]
 size = Vector3(1, 0.09729004, 1)
@@ -90,6 +94,8 @@ _data = {
 
 [node name="button" type="StaticBody3D" unique_id=351347304]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_rhj8v")
 
 [node name="button" type="MeshInstance3D" parent="." unique_id=758828311]
@@ -99,6 +105,12 @@ skeleton = NodePath("../Base")
 
 [node name="Base" type="MeshInstance3D" parent="." unique_id=1867862804]
 mesh = SubResource("BoxMesh_i7y4x")
+
+[node name="buttonCollision" type="StaticBody3D" parent="." unique_id=2097104844]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="buttonCollision" unique_id=2080920281]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08703613, 0)
+shape = SubResource("CylinderShape3D_rhj8v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1451600029]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.1035156e-05, 0)

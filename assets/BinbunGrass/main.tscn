@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://bsxg8vbm2rc2a"]
 
 [ext_resource type="Material" uid="uid://bra6ug2wjmj0j" path="res://assets/BinbunGrass/src/materials/grass_01/grass_ground_01.tres" id="1_0xm2m"]
-[ext_resource type="Material" uid="uid://c2to67v55oatp" path="res://assets/BinbunGrass/src/materials/grass_01/grass_01.tres" id="2_h2yge"]
+[ext_resource type="Shader" uid="uid://jqrwa1d8fqbj" path="res://assets/BinbunGrass/src/shader/grass.gdshader" id="2_d06m0"]
+[ext_resource type="Texture2D" uid="uid://dv6g2qxppq3ec" path="res://assets/BinbunGrass/src/texture/basic/grass_basic_atlas.png" id="3_mcfl3"]
+[ext_resource type="Texture2D" uid="uid://cdthil30j8sih" path="res://new_gradient_texture_2d.tres" id="3_r117s"]
 [ext_resource type="PackedScene" uid="uid://ck8q5movsdlbw" path="res://scenes/player/player.tscn" id="3_tepww"]
 [ext_resource type="PackedScene" uid="uid://y0gkedt6w0yb" path="res://scenes/button.tscn" id="4_him1l"]
+[ext_resource type="Texture2D" uid="uid://co5sp06yppnpi" path="res://assets/BinbunGrass/src/texture/basic/grass_basic_02.png" id="4_r117s"]
+[ext_resource type="Texture2D" uid="uid://2aun873r6w6p" path="res://new_noise_texture_2d.tres" id="4_una7s"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7dm0k"]
 size = Vector2(20, 20)
@@ -13,6 +17,36 @@ size = Vector2(0.4, 0.4)
 subdivide_width = 2
 subdivide_depth = 2
 center_offset = Vector3(0, 0.2, 0)
+
+[sub_resource type="Gradient" id="Gradient_lquwl"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lquwl"]
+noise_type = 0
+fractal_octaves = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7mycd"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_lquwl")
+color_ramp = SubResource("Gradient_lquwl")
+seamless = true
+seamless_blend_skirt = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_17h12"]
+render_priority = 0
+shader = ExtResource("2_d06m0")
+shader_parameter/billboard = true
+shader_parameter/shape_texture = ExtResource("4_r117s")
+shader_parameter/shape_atlas = ExtResource("3_mcfl3")
+shader_parameter/use_atlas = true
+shader_parameter/noise_texture = ExtResource("4_una7s")
+shader_parameter/color_gradient = ExtResource("3_r117s")
+shader_parameter/random_variation = 0.0
+shader_parameter/wind_texture = SubResource("NoiseTexture2D_7mycd")
+shader_parameter/wind_velocity = Vector2(0, 0)
+shader_parameter/alpha_cut_start = 0.4
+shader_parameter/alpha_cut_end = 0.6
+shader_parameter/alpha_mode = 1
 
 [sub_resource type="MultiMesh" id="MultiMesh_h2yge"]
 transform_format = 1
@@ -37,7 +71,7 @@ visible = false
 mesh = SubResource("QuadMesh_ig7tw")
 
 [node name="Grass" type="MultiMeshInstance3D" parent="." unique_id=1006459485]
-material_override = ExtResource("2_h2yge")
+material_override = SubResource("ShaderMaterial_17h12")
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_h2yge")
 

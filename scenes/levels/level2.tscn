@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ceoroyscdqopb" path="res://scenes/breakableWall.tscn" id="3_ok6xr"]
 [ext_resource type="PackedScene" uid="uid://bk2te4oxquivp" path="res://scenes/barrel.tscn" id="5_dj4wq"]
 [ext_resource type="Script" uid="uid://cvgnfu7i7lwc" path="res://scripts/camera_pivot.gd" id="6_ok6xr"]
+[ext_resource type="Material" uid="uid://bra6ug2wjmj0j" path="res://assets/BinbunGrass/src/materials/grass_01/grass_ground_01.tres" id="7_dj4wq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_niitk"]
 size = Vector3(1, 2.63, 1)
@@ -47,6 +48,7 @@ glow_enabled = true
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="." unique_id=1662516662]
 transform = Transform3D(8.06, 0, 0, 0, 1.4, 0, 0, 0, 26.180002, 15.645204, 1.0636635, 12.010284)
+material_override = ExtResource("7_dj4wq")
 use_collision = true
 mesh = SubResource("BoxMesh_niitk")
 material = ExtResource("1_71baw")
@@ -67,7 +69,7 @@ use_collision = true
 collision_layer = 3
 collision_mask = 3
 size = Vector3(35.93799, 1, 23.454132)
-material = ExtResource("1_71baw")
+material = ExtResource("7_dj4wq")
 
 [node name="Grass" type="MultiMeshInstance3D" parent="Grass" unique_id=373034215]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12215996, -0.016842842, 8.4541855)

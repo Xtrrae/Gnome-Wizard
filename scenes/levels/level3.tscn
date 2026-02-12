@@ -42,7 +42,7 @@ size = Vector3(35.93799, 1, 23.454132)
 material = ExtResource("1_frjko")
 
 [node name="Grass" type="MultiMeshInstance3D" parent="Grass" unique_id=685441498]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12215996, -0.016842842, 8.4541855)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.570667, -0.016842842, 8.4541855)
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_hadiw")
 
@@ -76,4 +76,4 @@ projection = 1
 size = 12.284
 
 [node name="button" parent="." unique_id=351347304 instance=ExtResource("6_frjko")]
-transform = Transform3D(1.755, 0, 0, 0, 1.755, 0, 0, 0, 1.755, 4.8220496, 1.2357768, 8.50192)
+transform = Transform3D(1.755, 0, 0, 0, 1.755, 0, 0, 0, 1.755, 4.8220496, 0.6168876, 8.50192)
