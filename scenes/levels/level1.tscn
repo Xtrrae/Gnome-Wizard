@@ -101,6 +101,8 @@ shader_parameter/use_ramp = false
 shader_parameter/use_borders = false
 shader_parameter/border_width = 0.01
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_plydf"]
+
 [node name="Level1" type="Node3D" unique_id=1775222328]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=782256261]
@@ -176,3 +178,21 @@ zoom_speed = 0.5
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.7071068, 0, -0.7071068, 0.70710677, 0, 8.353881, 10.423485)
 projection = 1
 size = 12.284
+
+[node name="camBoundary" type="Node" parent="." unique_id=680725285]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="camBoundary" unique_id=619361992]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -8.412603)
+shape = SubResource("WorldBoundaryShape3D_plydf")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="camBoundary" unique_id=119234320]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -56.389206)
+shape = SubResource("WorldBoundaryShape3D_plydf")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="camBoundary" unique_id=337286093]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -27.384418, 0, -31.977736)
+shape = SubResource("WorldBoundaryShape3D_plydf")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="camBoundary" unique_id=808053545]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 32.10821, 0, -31.977736)
+shape = SubResource("WorldBoundaryShape3D_plydf")

@@ -23,7 +23,6 @@ func _process(delta: float) -> void:
 		queue_free()
 	
 	move_and_slide()
-	
 
 
 

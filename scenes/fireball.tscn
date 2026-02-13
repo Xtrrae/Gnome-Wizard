@@ -71,7 +71,7 @@ _data = {
 }
 
 [node name="fireball" type="CharacterBody3D" unique_id=1626109877 groups=["Impact"]]
-collision_mask = 82
+collision_mask = 338
 script = ExtResource("1_71t8j")
 rot_speed = Vector3(0.1, 0.1, 0.1)
 
@@ -85,7 +85,7 @@ mesh = SubResource("BoxMesh_1gl40")
 surface_material_override/0 = SubResource("ShaderMaterial_cb14k")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1536787201]
-collision_mask = 24
+collision_mask = 280
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=840021471]
 shape = SubResource("SphereShape3D_1gl40")
