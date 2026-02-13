@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://ck8q5movsdlbw"]
 
 [ext_resource type="Script" uid="uid://b2w0eqkf6i10h" path="res://scripts/player/player.gd" id="1_8afob"]
-[ext_resource type="Script" uid="uid://bskdfx42qvnwp" path="res://scripts/player/hitbox.gd" id="2_gmlin"]
 [ext_resource type="ArrayMesh" uid="uid://c8q4g5qv1vwpm" path="res://assets/gnome.tres" id="3_lvxji"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p47bc"]
-size = Vector3(0.88062286, 0.7314949, 0.6300497)
+size = Vector3(0.88062286, 0.7949467, 0.6300497)
 
 [sub_resource type="Animation" id="Animation_dovo2"]
 length = 0.001
@@ -76,7 +75,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_75vfm"]
-size = Vector3(1.0485382, 0.5600586, 0.9958496)
+size = Vector3(0.889698, 0.740386, 0.83825684)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lvxji"]
 size = Vector3(0.7141113, 0.10058212, 0.4273529)
@@ -87,9 +86,8 @@ collision_mask = 5
 script = ExtResource("1_8afob")
 
 [node name="hitbox" type="CollisionShape3D" parent="." unique_id=1389583320]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022368282, 0.26595318, -0.00031805038)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022368282, 0.2342273, -0.00031805038)
 shape = SubResource("BoxShape3D_p47bc")
-script = ExtResource("2_gmlin")
 
 [node name="gnome" type="MeshInstance3D" parent="." unique_id=44796641]
 transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, -0.10914505, -0.1707064, 7.461813e-09)
@@ -103,14 +101,14 @@ libraries/ = SubResource("AnimationLibrary_lvxji")
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Push" unique_id=1029396808]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.033598304, 0.34979248, 0.076538086)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0258106, 0.25962877, 0.15533447)
 shape = SubResource("BoxShape3D_75vfm")
 
 [node name="standOn" type="Area3D" parent="." unique_id=785474475]
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="standOn" unique_id=952892102]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.039328545, -0.21658364, -0.036189556)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.039328545, -0.27017975, -0.036189556)
 shape = SubResource("BoxShape3D_lvxji")
 
 [node name="pivot_center" type="Node3D" parent="." unique_id=252773372]
@@ -119,6 +117,7 @@ shape = SubResource("BoxShape3D_lvxji")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28796315, 0.9828421)
 
 [node name="RayCast3D" type="RayCast3D" parent="pivot_center" unique_id=1582326355]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4403876, 0)
 target_position = Vector3(0, 0, 1.72)
 collision_mask = 128
 hit_from_inside = true
