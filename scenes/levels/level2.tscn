@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://dkc3abguhruqj"]
 
-[ext_resource type="Material" uid="uid://cws5r2u1mxqs8" path="res://shaders/grass_block.tres" id="1_71baw"]
 [ext_resource type="Material" uid="uid://bvcie6nuke58c" path="res://assets/Grass_material.tres" id="1_dj4wq"]
 [ext_resource type="ArrayMesh" uid="uid://r2imjo7o2734" path="res://assets/stylizedGrassMeshes/grass2.res" id="2_niitk"]
 [ext_resource type="PackedScene" uid="uid://ck8q5movsdlbw" path="res://scenes/player/player.tscn" id="3_d5djh"]
@@ -8,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bk2te4oxquivp" path="res://scenes/barrel.tscn" id="5_dj4wq"]
 [ext_resource type="Script" uid="uid://cvgnfu7i7lwc" path="res://scripts/camera_pivot.gd" id="6_ok6xr"]
 [ext_resource type="Material" uid="uid://bra6ug2wjmj0j" path="res://assets/BinbunGrass/src/materials/grass_01/grass_ground_01.tres" id="7_dj4wq"]
+[ext_resource type="PackedScene" uid="uid://dmmwselun6166" path="res://scenes/WinGate.tscn" id="8_k0mew"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_niitk"]
 material = ExtResource("1_dj4wq")
@@ -113,3 +113,6 @@ zoom_speed = 0.5
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 6.0734177, 15.855085)
 projection = 1
 size = 12.284
+
+[node name="Node3D" parent="." unique_id=1191173673 instance=ExtResource("8_k0mew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.033255, 3.9046628, 6.2176814)

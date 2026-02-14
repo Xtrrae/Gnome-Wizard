@@ -5,13 +5,11 @@ extends CharacterBody3D
 @onready var gnome: Node3D = $gnome
 @onready var hitbox: CollisionShape3D = $hitbox
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var cam: Camera3D = $cam
 @onready var main = self.get_parent()
 @onready var projectile = load("res://scenes/fireball.tscn")
 @onready var pivot_center: Node3D = $pivot_center
 @onready var pivot_forward: Node3D = $pivot_center/pivot_forward
 @onready var ray_cast_3d: RayCast3D = $pivot_center/RayCast3D
-@onready var step_up: RayCast3D = $pivot_center/StepUp
 
 
 var last_direction
@@ -97,16 +95,16 @@ func shoot():
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("push"):
-		body.collision_mask = 1
-		body.collision_layer = 1
+		body.collision_mask = 257
+		body.collision_layer = 257
 		on_box = true
 
 
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.is_in_group("push"):
-		body.collision_mask = 2
-		body.collision_layer = 2
+		body.collision_mask = 258
+		body.collision_layer = 258
 		on_box = false
 
 func _on_push_body_entered(body: Node3D) -> void:
@@ -120,5 +118,5 @@ func _on_push_body_exited(body: Node3D) -> void:
 		barrel.erase(body)
 		speed = 5.0
 		pushing = false
-		body.collision_mask = 2
-		body.collision_layer = 2
+		body.collision_mask = 258
+		body.collision_layer = 258

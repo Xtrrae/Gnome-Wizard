@@ -1,15 +1,11 @@
 [gd_resource type="NoiseTexture2D" format=3 uid="uid://ditu0cgcvumpc"]
 
-[sub_resource type="Gradient" id="Gradient_pq5va"]
-offsets = PackedFloat32Array(0.016949153, 0.1764706, 0.3529412, 0.4117647, 1)
-colors = PackedColorArray(0.046392642, 0.3171734, 0.052096546, 1, 0.10271301, 0.7113972, 0.117617704, 1, 0.13084292, 0.97498983, 0.11230429, 1, 0.26931116, 0.9211747, 0.049811535, 1, 0.6123108, 1, 0.4467464, 1)
-
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_dajya"]
 noise_type = 0
 seed = 1
+frequency = 0.0562
 fractal_octaves = 2
 fractal_lacunarity = 2.35
 
 [resource]
 noise = SubResource("FastNoiseLite_dajya")
-color_ramp = SubResource("Gradient_pq5va")

@@ -81,7 +81,7 @@ size = Vector3(0.889698, 0.740386, 0.83825684)
 size = Vector3(0.7141113, 0.10058212, 0.4273529)
 
 [node name="Player" type="CharacterBody3D" unique_id=1418047351 groups=["player"]]
-collision_layer = 3
+collision_layer = 7
 collision_mask = 5
 script = ExtResource("1_8afob")
 
