@@ -3,7 +3,7 @@
 [ext_resource type="Shader" uid="uid://c6e71lu3ebd68" path="res://shaders/main.gdshader" id="1_wvkya"]
 [ext_resource type="Texture2D" uid="uid://b7hqdiiatwwom" path="res://assets/Wood/WoodAlone/WoodDarker/DevWoodDarker_albedo.png" id="2_1ft22"]
 [ext_resource type="Texture2D" uid="uid://hvdw5tp7humw" path="res://assets/Wood/WoodAlone/WoodDarker/DevWoodDarker_normal.png" id="3_id6xw"]
-[ext_resource type="Script" uid="uid://cicdaenqgfwf7" path="res://breakableWall.gd" id="4_u1bhm"]
+[ext_resource type="Script" uid="uid://cicdaenqgfwf7" path="res://scripts/breakableWall.gd" id="4_u1bhm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fp77m"]
 lightmap_size_hint = Vector2i(14, 21)

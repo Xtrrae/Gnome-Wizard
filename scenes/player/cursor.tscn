@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cnr1lxgnsj8b1"]
+
+[ext_resource type="Texture2D" uid="uid://d1sfenc11j7in" path="res://assets/cursor.png" id="1_s0nli"]
+[ext_resource type="Script" uid="uid://be7f070ridi0v" path="res://scripts/player/cursor.gd" id="2_ndevg"]
+
+[node name="Sprite2D" type="Sprite2D" unique_id=2109625003]
+z_index = 4096
+texture_filter = 1
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_s0nli")
+script = ExtResource("2_ndevg")

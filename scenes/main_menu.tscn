@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://debxmlccguwim"]
 
 [ext_resource type="Script" uid="uid://chwyhw1rcyrbk" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="PackedScene" uid="uid://cnr1lxgnsj8b1" path="res://scenes/player/cursor.tscn" id="2_ekxnf"]
 
 [node name="MainMenu" type="Control" unique_id=1729572211]
 layout_mode = 3
@@ -33,6 +34,9 @@ text = "Settings"
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1813943683]
 layout_mode = 2
 text = "Quit"
+
+[node name="Sprite2D" parent="." unique_id=2109625003 instance=ExtResource("2_ekxnf")]
+position = Vector2(292, 398)
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

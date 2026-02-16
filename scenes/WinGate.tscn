@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dmmwselun6166"]
 
-[ext_resource type="Script" uid="uid://ce2grnrjdgpij" path="res://winGate.gd" id="1_m6opr"]
+[ext_resource type="Script" uid="uid://ce2grnrjdgpij" path="res://scripts/winGate.gd" id="1_m6opr"]
 [ext_resource type="Shader" uid="uid://c6e71lu3ebd68" path="res://shaders/main.gdshader" id="2_ee6na"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_e4p64"]

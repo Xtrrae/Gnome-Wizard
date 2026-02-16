@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dyjtpgeqoscit"]
 
 [ext_resource type="Material" uid="uid://d0hyi5n6ng25w" path="res://assets/demo/assets/materials/M_rock23_black_tp.tres" id="1_ejswk"]
+[ext_resource type="Script" uid="uid://dh7dsch13kio6" path="res://scripts/level.gd" id="1_nkeig"]
 [ext_resource type="Shader" uid="uid://c6e71lu3ebd68" path="res://shaders/main.gdshader" id="2_bbk5w"]
 [ext_resource type="PackedScene" uid="uid://ck8q5movsdlbw" path="res://scenes/player/player.tscn" id="3_conm7"]
 [ext_resource type="Material" uid="uid://bvcie6nuke58c" path="res://assets/Grass_material.tres" id="3_plydf"]
@@ -8,7 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bk2te4oxquivp" path="res://scenes/barrel.tscn" id="5_u3awl"]
 [ext_resource type="PackedScene" uid="uid://ceoroyscdqopb" path="res://scenes/breakableWall.tscn" id="6_2ku1j"]
 [ext_resource type="PackedScene" uid="uid://dmmwselun6166" path="res://scenes/WinGate.tscn" id="7_f31uk"]
-[ext_resource type="Script" uid="uid://cvgnfu7i7lwc" path="res://scripts/camera_pivot.gd" id="8_8a7m2"]
+[ext_resource type="Script" uid="uid://cvgnfu7i7lwc" path="res://scripts/player/camera_pivot.gd" id="8_8a7m2"]
+[ext_resource type="PackedScene" uid="uid://cnr1lxgnsj8b1" path="res://scenes/player/cursor.tscn" id="10_5ntmo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -101,9 +103,8 @@ shader_parameter/use_ramp = false
 shader_parameter/use_borders = false
 shader_parameter/border_width = 0.01
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_plydf"]
-
 [node name="Level1" type="Node3D" unique_id=1775222328]
+script = ExtResource("1_nkeig")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=782256261]
 environment = SubResource("Environment_0xm2m")
@@ -178,21 +179,7 @@ zoom_speed = 0.5
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.7071068, 0, -0.7071068, 0.70710677, 0, 8.353881, 10.423485)
 projection = 1
 size = 12.284
+near = 0.001
 
-[node name="camBoundary" type="Node" parent="." unique_id=680725285]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="camBoundary" unique_id=619361992]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -8.412603)
-shape = SubResource("WorldBoundaryShape3D_plydf")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="camBoundary" unique_id=119234320]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -56.389206)
-shape = SubResource("WorldBoundaryShape3D_plydf")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="camBoundary" unique_id=337286093]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -27.384418, 0, -31.977736)
-shape = SubResource("WorldBoundaryShape3D_plydf")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="camBoundary" unique_id=808053545]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 32.10821, 0, -31.977736)
-shape = SubResource("WorldBoundaryShape3D_plydf")
+[node name="Sprite2D" parent="." unique_id=2109625003 instance=ExtResource("10_5ntmo")]
+position = Vector2(633, 427)

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bmboiqvoaqicb"]
 
 [ext_resource type="Script" uid="uid://c00ex5koigtru" path="res://scripts/level_select.gd" id="1_3shnc"]
+[ext_resource type="PackedScene" uid="uid://cnr1lxgnsj8b1" path="res://scenes/player/cursor.tscn" id="2_p0wlc"]
 
 [node name="LevelSelect" type="Control" unique_id=1291531011]
 layout_mode = 3
@@ -52,6 +53,9 @@ text = "Level 6"
 [node name="level7" type="Button" parent="VBoxContainer" unique_id=1011613820]
 layout_mode = 2
 text = "Level 7"
+
+[node name="Sprite2D" parent="." unique_id=2109625003 instance=ExtResource("2_p0wlc")]
+position = Vector2(367, 413)
 
 [connection signal="pressed" from="VBoxContainer/level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="VBoxContainer/level2" to="." method="_on_level_2_pressed"]

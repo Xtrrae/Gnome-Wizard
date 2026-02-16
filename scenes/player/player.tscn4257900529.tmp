@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://ck8q5movsdlbw"]
+
+[ext_resource type="Script" uid="uid://b2w0eqkf6i10h" path="res://scripts/player/player.gd" id="1_8afob"]
+[ext_resource type="ArrayMesh" uid="uid://c8q4g5qv1vwpm" path="res://assets/gnome.tres" id="3_lvxji"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p47bc"]
+size = Vector3(0.88062286, 0.7949467, 0.6300497)
+
+[sub_resource type="Animation" id="Animation_dovo2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [55.0]
+}
+
+[sub_resource type="Animation" id="Animation_8afob"]
+resource_name = "zoom"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.22531305),
+"update": 0,
+"values": [75.0, 55.0]
+}
+
+[sub_resource type="Animation" id="Animation_lvxji"]
+resource_name = "zoom_cam_shake"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.06666667, 0.4, 0.8, 1),
+"transitions": PackedFloat32Array(0.2871747, 2.143547, 0.6372802, 2.828427),
+"update": 0,
+"values": [55.0, 56.0, 56.0, 58.0]
+}
+
+[sub_resource type="Animation" id="Animation_gmlin"]
+resource_name = "zoom_pan"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [55.0, 75.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lvxji"]
+_data = {
+&"RESET": SubResource("Animation_dovo2"),
+&"zoom": SubResource("Animation_8afob"),
+&"zoom_cam_shake": SubResource("Animation_lvxji"),
+&"zoom_pan": SubResource("Animation_gmlin")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_75vfm"]
+size = Vector3(0.889698, 0.740386, 0.83825684)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lvxji"]
+size = Vector3(0.7141113, 0.10058212, 0.4273529)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dovo2"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="Player" type="CharacterBody3D" unique_id=1418047351 groups=["player"]]
+collision_layer = 7
+collision_mask = 5
+script = ExtResource("1_8afob")
+
+[node name="hitbox" type="CollisionShape3D" parent="." unique_id=1389583320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022368282, 0.2342273, -0.00031805038)
+shape = SubResource("BoxShape3D_p47bc")
+
+[node name="gnome" type="MeshInstance3D" parent="." unique_id=44796641]
+transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, -0.10914505, -0.1707064, 7.461813e-09)
+mesh = ExtResource("3_lvxji")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=386164340]
+root_node = NodePath("")
+libraries/ = SubResource("AnimationLibrary_lvxji")
+
+[node name="Push" type="Area3D" parent="." unique_id=1919162536]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Push" unique_id=1029396808]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0258106, 0.25962877, 0.15533447)
+shape = SubResource("BoxShape3D_75vfm")
+
+[node name="standOn" type="Area3D" parent="." unique_id=785474475]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="standOn" unique_id=952892102]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.039328545, -0.27017975, -0.036189556)
+shape = SubResource("BoxShape3D_lvxji")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=292575039]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2756726, 1.6818752)
+mesh = SubResource("BoxMesh_dovo2")
+skeleton = NodePath("../pivot_center")
+
+[node name="pivot_center" type="Node3D" parent="." unique_id=252773372]
+
+[node name="pivot_forward" type="Node3D" parent="pivot_center" unique_id=40345167]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28796315, 0.9828421)
+
+[node name="RayCast3D" type="RayCast3D" parent="pivot_center" unique_id=1582326355]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4403876, 0)
+target_position = Vector3(0, 0, 1.72)
+collision_mask = 128
+hit_from_inside = true
+debug_shape_thickness = 3
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="pivot_center" unique_id=1936795915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2756726, 1.6818752)
+mesh = SubResource("BoxMesh_dovo2")
+
+[connection signal="body_entered" from="Push" to="." method="_on_push_body_entered"]
+[connection signal="body_exited" from="Push" to="." method="_on_push_body_exited"]
+[connection signal="body_entered" from="standOn" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="standOn" to="." method="_on_stand_on_body_exited"]
+[connection signal="body_exited" from="standOn" to="." method="_on_area_3d_body_exited"]

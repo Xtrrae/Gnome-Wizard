@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://ck8q5movsdlbw"]
 
 [ext_resource type="Script" uid="uid://b2w0eqkf6i10h" path="res://scripts/player/player.gd" id="1_8afob"]
+[ext_resource type="AudioStream" uid="uid://bx8d35c6sq8dn" path="res://Audio/foot steps.wav" id="3_gmlin"]
 [ext_resource type="ArrayMesh" uid="uid://c8q4g5qv1vwpm" path="res://assets/gnome.tres" id="3_lvxji"]
+[ext_resource type="AudioStream" uid="uid://ds6628ov0o4jk" path="res://Audio/Fireball shot.wav" id="4_lvxji"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p47bc"]
 size = Vector3(0.88062286, 0.7949467, 0.6300497)
@@ -80,6 +82,9 @@ size = Vector3(0.889698, 0.740386, 0.83825684)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lvxji"]
 size = Vector3(0.7141113, 0.10058212, 0.4273529)
 
+[sub_resource type="BoxMesh" id="BoxMesh_dovo2"]
+size = Vector3(0.5, 0.5, 0.5)
+
 [node name="Player" type="CharacterBody3D" unique_id=1418047351 groups=["player"]]
 collision_layer = 7
 collision_mask = 5
@@ -111,6 +116,11 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.039328545, -0.27017975, -0.036189556)
 shape = SubResource("BoxShape3D_lvxji")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=292575039]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2756726, 1.6818752)
+mesh = SubResource("BoxMesh_dovo2")
+skeleton = NodePath("../pivot_center")
+
 [node name="pivot_center" type="Node3D" parent="." unique_id=252773372]
 
 [node name="pivot_forward" type="Node3D" parent="pivot_center" unique_id=40345167]
@@ -123,8 +133,24 @@ collision_mask = 128
 hit_from_inside = true
 debug_shape_thickness = 3
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="pivot_center" unique_id=1936795915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2756726, 1.6818752)
+mesh = SubResource("BoxMesh_dovo2")
+
+[node name="Steps" type="AudioStreamPlayer3D" parent="." unique_id=1313932447]
+stream = ExtResource("3_gmlin")
+volume_db = -10.0
+
+[node name="Timer" type="Timer" parent="." unique_id=1395040603]
+wait_time = 15.0
+
+[node name="Fireball" type="AudioStreamPlayer3D" parent="." unique_id=1572012837]
+stream = ExtResource("4_lvxji")
+volume_db = -1.403
+
 [connection signal="body_entered" from="Push" to="." method="_on_push_body_entered"]
 [connection signal="body_exited" from="Push" to="." method="_on_push_body_exited"]
 [connection signal="body_entered" from="standOn" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="standOn" to="." method="_on_stand_on_body_exited"]
 [connection signal="body_exited" from="standOn" to="." method="_on_area_3d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

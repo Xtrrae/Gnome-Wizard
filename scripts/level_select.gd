@@ -24,7 +24,7 @@ func _on_level_3_pressed() -> void:
 
 
 func _on_level_4_pressed() -> void:
-	get_tree().change_scene_to_file("res://assets/BinbunGrass/main.tsc")
+	get_tree().change_scene_to_file("res://scenes/levels/level4.tscn")
 
 
 func _on_level_5_pressed() -> void:
