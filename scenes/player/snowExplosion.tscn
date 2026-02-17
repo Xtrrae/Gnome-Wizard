@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://t2uqswoccm0y"]
+
+[ext_resource type="Texture2D" uid="uid://c5mngs4ylx077" path="res://assets/SnowFlake1.png" id="1_bvhr4"]
+[ext_resource type="Material" uid="uid://bkobmnr1m230p" path="res://flare00.tres" id="2_qu4q0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77dra"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("1_bvhr4")
+
+[sub_resource type="Gradient" id="Gradient_xqgd6"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ookdh"]
+gradient = SubResource("Gradient_xqgd6")
+
+[sub_resource type="Curve" id="Curve_js3qy"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_l7xko"]
+curve = SubResource("Curve_js3qy")
+
+[sub_resource type="Curve" id="Curve_c6f8w"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_d16qu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_gphtm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_4au6m"]
+curve_x = SubResource("Curve_c6f8w")
+curve_y = SubResource("Curve_d16qu")
+curve_z = SubResource("Curve_gphtm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l4ooj"]
+lifetime_randomness = 0.4
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 1, 0)
+scale_min = 0.19999999
+scale_max = 0.5
+scale_curve = SubResource("CurveXYZTexture_4au6m")
+scale_over_velocity_min = 693.39996
+scale_over_velocity_max = 693.39996
+color = Color(0, 0, 1, 1)
+color_ramp = SubResource("GradientTexture1D_ookdh")
+hue_variation_min = -0.100000024
+hue_variation_max = 0.039999977
+hue_variation_curve = SubResource("CurveTexture_l7xko")
+turbulence_enabled = true
+turbulence_noise_scale = 1.075
+collision_use_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_5v04a"]
+
+[sub_resource type="Curve" id="Curve_o0ioc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tjnmr"]
+curve = SubResource("Curve_o0ioc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fuh2u"]
+gravity = Vector3(0, 0, 0)
+scale_min = 4.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_tjnmr")
+color = Color(0.9520893, 1.6873019, 1.8079147, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_tkpv1"]
+
+[sub_resource type="Gradient" id="Gradient_8j4re"]
+colors = PackedColorArray(5, 2, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uyjyj"]
+gradient = SubResource("Gradient_8j4re")
+
+[sub_resource type="Curve" id="Curve_iy5kp"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rpf6l"]
+curve = SubResource("Curve_iy5kp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_36828"]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 0.3
+spread = 180.0
+initial_velocity_min = 0.5
+initial_velocity_max = 2.0
+gravity = Vector3(0, -2, 0)
+scale_min = 0.75
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_rpf6l")
+color = Color(2.1055946, 3.3468037, 3.594645, 1)
+color_ramp = SubResource("GradientTexture1D_uyjyj")
+
+[sub_resource type="QuadMesh" id="QuadMesh_em427"]
+
+[node name="Node3D" type="Node3D" unique_id=990393998]
+
+[node name="Snow" type="GPUParticles3D" parent="." unique_id=1930227964]
+material_override = SubResource("StandardMaterial3D_77dra")
+emitting = false
+amount = 21
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_l4ooj")
+draw_pass_1 = SubResource("QuadMesh_5v04a")
+
+[node name="QuickFlash" type="GPUParticles3D" parent="." unique_id=669881361]
+material_override = ExtResource("2_qu4q0")
+emitting = false
+lifetime = 0.1
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_fuh2u")
+draw_pass_1 = SubResource("QuadMesh_tkpv1")
+
+[node name="Fire" type="GPUParticles3D" parent="." unique_id=332364367]
+material_override = ExtResource("2_qu4q0")
+emitting = false
+amount = 13
+lifetime = 0.55
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_36828")
+draw_pass_1 = SubResource("QuadMesh_em427")
