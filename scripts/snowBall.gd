@@ -14,6 +14,7 @@ extends CharacterBody3D
 var spawnPos : Vector3
 var spawnRot : float
 var hit = false
+var hit_pos : Vector2
 
 func _ready() -> void:
 	global_position = spawnPos
@@ -23,9 +24,13 @@ func _ready() -> void:
 
 	
 func _physics_process(delta: float) -> void:
+	print(global_position)
 	velocity = global_basis * Vector3.BACK * SPEED
 	mesh_instance_3d.rotation += rot_speed
-	
+	if (global_position.x == hit_pos.x and global_position.z == hit_pos.y):
+		
+		queue_free()
+
 	if hit and not animation_player.is_playing():
 		queue_free()
 	move_and_slide()
@@ -33,12 +38,9 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	rot_speed = Vector3.ZERO
-	if body.is_in_group("push"):
-		body.explode = true
-		quick_flash.emitting = true
-	else:
-		quick_flash.emitting = true
-		fire.emitting = true
+	animation_player.play("explosion")
+	if body.name == "DESPAWN" and global_position.x == hit_pos.x and global_position.z == hit_pos.y:
+		queue_free()
 	hit = true
 
 func _on_timer_timeout() -> void:

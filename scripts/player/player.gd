@@ -15,6 +15,8 @@ extends CharacterBody3D
 @onready var steps: AudioStreamPlayer3D = $Steps
 @onready var timer: Timer = $Timer
 @onready var fireball: AudioStreamPlayer3D = $Fireball
+@onready var despawn: CollisionShape3D = $snowballDespawn/DESPAWN
+
 
 
 var last_direction
@@ -31,6 +33,7 @@ var wall_infront = false
 var barrel : Array
 var is_playing = false
 var spell_type := 0
+var hit_pos
 
 const BASE_SPEED = 5.0
 const JUMP_VELOCITY = 6.0
@@ -118,10 +121,12 @@ func _input(event: InputEvent) -> void:
 		ray_query.from = from
 		ray_query.to = to
 		var result = space.intersect_ray(ray_query)
+		hit_pos = result.position
 		if result.size() < 1:
 			return
-		print(result)
+		print(result.position)
 		mesh_instance_3d.global_position = result.position + Vector3(0, .5, 0)
+		despawn.global_position = result.position + Vector3(0, .5, 0)
 		pivot_center.rotation.y = atan2(-self.position.x + result.position.x, -self.position.z + result.position.z)
 	if Input.is_action_just_pressed("shoot"):
 		if spell_type == 0:
@@ -136,6 +141,8 @@ func _input(event: InputEvent) -> void:
 			var instance = projectile.instantiate()
 			instance.spawnPos = pivot_forward.global_position
 			instance.spawnRot = pivot_center.rotation.y
+			instance.hit_pos.x = hit_pos.x
+			instance.hit_pos.y = hit_pos.z
 			main.add_child.call_deferred(instance)
 			
 	if Input.is_action_just_pressed("switch to fireball"):
