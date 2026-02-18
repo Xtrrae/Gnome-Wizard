@@ -23,7 +23,7 @@ point_count = 2
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
 point_count = 1
 
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_xfoey"]
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_8jvsw"]
 curve_x = SubResource("Curve_aw4cw")
 curve_y = SubResource("Curve_3el85")
 curve_z = SubResource("Curve_hbmxj")
@@ -38,7 +38,7 @@ initial_velocity_max = 46.75
 gravity = Vector3(0, -20, 0)
 scale_min = 0.14999999
 scale_max = 0.5
-scale_curve = SubResource("CurveXYZTexture_xfoey")
+scale_curve = SubResource("CurveXYZTexture_8jvsw")
 color = Color(5, 2, 0, 1)
 hue_variation_min = -0.010000022
 hue_variation_max = 0.039999977
@@ -50,14 +50,14 @@ collision_use_scale = true
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_aw4cw"]
+[sub_resource type="CurveTexture" id="CurveTexture_76tog"]
 curve = SubResource("Curve_nfeox")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3el85"]
 gravity = Vector3(0, 0, 0)
 scale_min = 4.0
 scale_max = 4.0
-scale_curve = SubResource("CurveTexture_aw4cw")
+scale_curve = SubResource("CurveTexture_76tog")
 color = Color(2.5, 1, 0.5, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_hbmxj"]
@@ -65,14 +65,14 @@ color = Color(2.5, 1, 0.5, 1)
 [sub_resource type="Gradient" id="Gradient_aw4cw"]
 colors = PackedColorArray(5, 2, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_3el85"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4cfvj"]
 gradient = SubResource("Gradient_aw4cw")
 
 [sub_resource type="Curve" id="Curve_xfoey"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_v8gpv"]
+[sub_resource type="CurveTexture" id="CurveTexture_n0lku"]
 curve = SubResource("Curve_xfoey")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xfoey"]
@@ -85,9 +85,9 @@ initial_velocity_max = 2.0
 gravity = Vector3(0, -2, 0)
 scale_min = 0.75
 scale_max = 1.5
-scale_curve = SubResource("CurveTexture_v8gpv")
+scale_curve = SubResource("CurveTexture_n0lku")
 color = Color(5, 2, 1, 1)
-color_ramp = SubResource("GradientTexture1D_3el85")
+color_ramp = SubResource("GradientTexture1D_4cfvj")
 
 [sub_resource type="QuadMesh" id="QuadMesh_v8gpv"]
 
@@ -95,7 +95,7 @@ color_ramp = SubResource("GradientTexture1D_3el85")
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_cun36"]
+[sub_resource type="CurveTexture" id="CurveTexture_ccgbl"]
 curve = SubResource("Curve_v8gpv")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vk406"]
@@ -108,7 +108,7 @@ initial_velocity_max = 2.0
 gravity = Vector3(0, 0, 0)
 scale_min = 3.0
 scale_max = 4.0
-scale_curve = SubResource("CurveTexture_cun36")
+scale_curve = SubResource("CurveTexture_ccgbl")
 color = Color(0, 0, 0, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_4jttm"]

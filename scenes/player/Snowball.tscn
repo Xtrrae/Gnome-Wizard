@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://i1wi3ti7dnod"]
+
+[ext_resource type="Script" uid="uid://dkkhrseo3dm38" path="res://scripts/snowBall.gd" id="1_6pvb1"]
+[ext_resource type="Shader" uid="uid://c6e71lu3ebd68" path="res://shaders/main.gdshader" id="2_qb0nb"]
+[ext_resource type="PackedScene" uid="uid://t2uqswoccm0y" path="res://scenes/player/snowExplosion.tscn" id="3_ikqmu"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mr53e"]
+
+[sub_resource type="Gradient" id="Gradient_7eedu"]
+offsets = PackedFloat32Array(0, 0.66284406, 1)
+colors = PackedColorArray(0, 0, 1, 1, 0.96100914, 0.96100914, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_h01cs"]
+noise_type = 2
+frequency = 0.0051
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wr1iv"]
+noise = SubResource("FastNoiseLite_h01cs")
+color_ramp = SubResource("Gradient_7eedu")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fhcgs"]
+render_priority = 0
+shader = ExtResource("2_qb0nb")
+shader_parameter/albedo = Color(0.4, 1, 1, 0.647059)
+shader_parameter/albedo_texture = SubResource("NoiseTexture2D_wr1iv")
+shader_parameter/clamp_diffuse_to_max = false
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+shader_parameter/use_attenuation = true
+shader_parameter/use_specular = true
+shader_parameter/specular_strength = 1.0
+shader_parameter/specular_shininess = 16.0
+shader_parameter/use_metallic = true
+shader_parameter/metallic_strength = 1.0
+shader_parameter/metallic_shininess = 16.0
+shader_parameter/use_rim = true
+shader_parameter/rim_width = 4.2590002023025
+shader_parameter/rim_color = Color(0.24123073, 0.46388173, 1, 1)
+shader_parameter/use_ramp = false
+shader_parameter/use_borders = false
+shader_parameter/border_width = 0.01
+
+[sub_resource type="SphereMesh" id="SphereMesh_fijbq"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7r5bw"]
+radius = 0.45255488
+
+[sub_resource type="Animation" id="Animation_6pvb1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.5, 0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_qb0nb"]
+resource_name = "explosion"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.5, 0.5, 0.5), Vector3(0.945, 0.945, 0.945)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ikqmu"]
+_data = {
+&"RESET": SubResource("Animation_6pvb1"),
+&"explosion": SubResource("Animation_qb0nb")
+}
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=990546922]
+collision_mask = 338
+script = ExtResource("1_6pvb1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=791392319]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_mr53e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=957582061]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_fhcgs")
+mesh = SubResource("SphereMesh_fijbq")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1677512196]
+collision_mask = 280
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1838638468]
+shape = SubResource("SphereShape3D_7r5bw")
+
+[node name="Node3D" parent="." unique_id=990393998 instance=ExtResource("3_ikqmu")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1918338838]
+libraries/ = SubResource("AnimationLibrary_ikqmu")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

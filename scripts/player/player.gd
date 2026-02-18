@@ -30,6 +30,7 @@ var current_rot : float
 var wall_infront = false
 var barrel : Array
 var is_playing = false
+var spell_type := 0
 
 const BASE_SPEED = 5.0
 const JUMP_VELOCITY = 6.0
@@ -106,7 +107,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
+	if event.is_action("shoot"):
 		var camera = camera_3d
 		var mouse_pos = event.position
 		var ray_length = 100
@@ -123,13 +124,26 @@ func _input(event: InputEvent) -> void:
 		mesh_instance_3d.global_position = result.position + Vector3(0, .5, 0)
 		pivot_center.rotation.y = atan2(-self.position.x + result.position.x, -self.position.z + result.position.z)
 	if Input.is_action_just_pressed("shoot"):
-		fireball.play()
-		var projectile = preload("res://scenes/player/fireball.tscn")
-		var instance = projectile.instantiate()
-		instance.spawnPos = pivot_forward.global_position
-		instance.spawnRot = pivot_center.rotation.y
-		main.add_child.call_deferred(instance)
-	
+		if spell_type == 0:
+			fireball.play()
+			var projectile = preload("res://scenes/player/fireball.tscn")
+			var instance = projectile.instantiate()
+			instance.spawnPos = pivot_forward.global_position
+			instance.spawnRot = pivot_center.rotation.y
+			main.add_child.call_deferred(instance)
+		if  spell_type == 1:
+			var projectile = preload("res://scenes/player/Snowball.tscn")
+			var instance = projectile.instantiate()
+			instance.spawnPos = pivot_forward.global_position
+			instance.spawnRot = pivot_center.rotation.y
+			main.add_child.call_deferred(instance)
+			
+	if Input.is_action_just_pressed("switch to fireball"):
+		print("fireball")
+		spell_type = 0
+	if Input.is_action_just_pressed("switch to snowball"):
+		print("snowball")
+		spell_type = 1
 
 
 
