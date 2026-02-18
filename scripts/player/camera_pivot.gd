@@ -3,9 +3,9 @@ extends Node3D
 @export var turn_sensitivity = 0.5
 @export var camera_speed = 1.0 
 @export var max_zoom = 5.0
-@export var max_pan = 20.0
-@export var zoom_speed = 1.0
-@export var lerp_speed = 1.0
+@export var max_pan = 100.0
+@export var zoom_speed = 10.0
+@export var lerp_speed = 5.0
 @onready var player: CharacterBody3D = $"../Player"
 
 @onready var camera_3d: Camera3D = $Camera3D
@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	
 
 func camera_zoom():
-	if Input.is_action_just_pressed("zoom") and camera_3d.size > max_zoom:
-		camera_3d.size = lerp(camera_3d.size,camera_3d.size - zoom_speed, lerp_speed)
-	if Input.is_action_just_pressed("pan") and camera_3d.size < max_pan:
-		camera_3d.size = lerp(camera_3d.size,camera_3d.size + zoom_speed, lerp_speed)
+	if Input.is_action_just_pressed("zoom") and camera_3d.fov > max_zoom:
+		camera_3d.fov = lerp(camera_3d.fov,camera_3d.fov - zoom_speed, lerp_speed)
+	if Input.is_action_just_pressed("pan") and camera_3d.fov < max_pan:
+		camera_3d.fov = lerp(camera_3d.fov,camera_3d.fov + zoom_speed, lerp_speed)

@@ -106,7 +106,6 @@ hit_from_inside = true
 debug_shape_thickness = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=386164340]
-root_node = NodePath("")
 libraries/ = SubResource("AnimationLibrary_lvxji")
 
 [node name="Push" type="Area3D" parent="." unique_id=1919162536]
@@ -151,6 +150,6 @@ volume_db = -80.0
 [connection signal="body_entered" from="Push" to="." method="_on_push_body_entered"]
 [connection signal="body_exited" from="Push" to="." method="_on_push_body_exited"]
 [connection signal="body_entered" from="standOn" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="standOn" to="." method="_on_area_3d_body_exited"]
 [connection signal="body_exited" from="standOn" to="." method="_on_stand_on_body_exited"]
+[connection signal="body_exited" from="standOn" to="." method="_on_area_3d_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

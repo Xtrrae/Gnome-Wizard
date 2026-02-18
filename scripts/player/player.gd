@@ -31,7 +31,7 @@ var wall_infront = false
 var barrel : Array
 var is_playing = false
 var spell_type := 0
-
+var shoot_at : Vector3
 const BASE_SPEED = 5.0
 const JUMP_VELOCITY = 6.0
 const STEP_VELOCITY = 2.5
@@ -118,6 +118,7 @@ func _input(event: InputEvent) -> void:
 		ray_query.from = from
 		ray_query.to = to
 		var result = space.intersect_ray(ray_query)
+		shoot_at = result.position
 		if result.size() < 1:
 			return
 		print(result)
@@ -134,6 +135,7 @@ func _input(event: InputEvent) -> void:
 		if  spell_type == 1:
 			var projectile = preload("res://scenes/player/Snowball.tscn")
 			var instance = projectile.instantiate()
+			instance.shoot_at = shoot_at
 			instance.spawnPos = pivot_forward.global_position
 			instance.spawnRot = pivot_center.rotation.y
 			main.add_child.call_deferred(instance)

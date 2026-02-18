@@ -96,18 +96,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(5.931338, 2.1715152, -3.5697079)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("doors/door4:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(5.931338, 2.1715152, -13.271513)]
-}
 
 [sub_resource type="Animation" id="Animation_ev8xs"]
 resource_name = "door_3_down"
@@ -141,45 +129,11 @@ tracks/0/keys = {
 "values": [Vector3(5.931338, -1.1915691, -3.5697079), Vector3(5.931338, 2.1715152, -3.5697079)]
 }
 
-[sub_resource type="Animation" id="Animation_qtppw"]
-resource_name = "door_4_down"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("doors/door4:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(5.931338, 2.1715152, -13.271513), Vector3(5.931338, -1.170016, -13.271513)]
-}
-
-[sub_resource type="Animation" id="Animation_atlnk"]
-resource_name = "door_4_up"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("doors/door4:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(5.931338, -1.170016, -13.271513), Vector3(5.931338, 2.1715152, -13.271513)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qtppw"]
 _data = {
 &"RESET": SubResource("Animation_5sfmg"),
 &"door_3_down": SubResource("Animation_ev8xs"),
-&"door_3_up": SubResource("Animation_q6dln"),
-&"door_4_down": SubResource("Animation_qtppw"),
-&"door_4_up": SubResource("Animation_atlnk")
+&"door_3_up": SubResource("Animation_q6dln")
 }
 
 [sub_resource type="Animation" id="Animation_tsmbm"]
@@ -257,19 +211,16 @@ light_color = Color(0.3779191, 0.37791878, 0.37791884, 1)
 shadow_enabled = true
 
 [node name="barrel" parent="." unique_id=1021782119 instance=ExtResource("3_t7v7a")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.033186, 2.0893753, -5.8402157)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.033186, 2.0893753, -0.3322258)
 
 [node name="barrel3" parent="." unique_id=884180412 instance=ExtResource("3_t7v7a")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.000985, 1.1136634, -16.360281)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.000985, 1.1136634, -13.376112)
 
 [node name="barrel4" parent="." unique_id=1006953356 instance=ExtResource("3_t7v7a")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.293067, 1.1136634, -3.7326107)
 
 [node name="barrel5" parent="." unique_id=947689647 instance=ExtResource("3_t7v7a")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.620781, 2.297545, 5.479321)
-
-[node name="barrel6" parent="." unique_id=832093884 instance=ExtResource("3_t7v7a")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.1678352, 2.297545, 9.139788)
 
 [node name="Camera_pivot" type="Node3D" parent="." unique_id=418524717]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 11.392204)
@@ -278,11 +229,12 @@ camera_speed = 0.5
 zoom_speed = 0.5
 
 [node name="Camera3D" type="Camera3D" parent="Camera_pivot" unique_id=301169000]
-transform = Transform3D(-4.371139e-08, -0.86602545, 0.49999997, 0, 0.49999997, 0.86602545, -1, 3.7855173e-08, -2.1855692e-08, 0.95290947, 14.736977, -3.4012256)
+transform = Transform3D(-4.371139e-08, -0.7071068, 0.7071068, 0, 0.7071068, 0.7071068, -1, 3.090862e-08, -3.090862e-08, -0.009735107, 6.0734177, -3.4012256)
+projection = 1
 size = 16.982
 
 [node name="button" parent="." unique_id=351347304 instance=ExtResource("5_f62st")]
-transform = Transform3D(-7.6713505e-08, 0, 1.7550002, 0, 1.7550002, 0, -1.7550002, 0, -7.6713505e-08, -4.260723, 0.47560954, -4.044512)
+transform = Transform3D(-7.6713505e-08, 0, 1.7550002, 0, 1.7550002, 0, -1.7550002, 0, -7.6713505e-08, -4.111359, 0.47560954, -3.6575441)
 
 [node name="button4" parent="." unique_id=1183520701 instance=ExtResource("5_f62st")]
 transform = Transform3D(-7.6713505e-08, 0, 1.7550002, 0, 1.7550002, 0, -1.7550002, 0, -7.6713505e-08, 10.70693, 0.47560954, 7.3118496)
@@ -291,7 +243,7 @@ transform = Transform3D(-7.6713505e-08, 0, 1.7550002, 0, 1.7550002, 0, -1.755000
 transform = Transform3D(-7.6713505e-08, 0, 1.7550002, 0, 1.7550002, 0, -1.7550002, 0, -7.6713505e-08, 10.556008, 0.47560954, -3.4531374)
 
 [node name="button2" parent="." unique_id=1928569083 instance=ExtResource("5_f62st")]
-transform = Transform3D(-7.6713505e-08, 0, 1.7550002, 0, 1.7550002, 0, -1.7550002, 0, -7.6713505e-08, -4.111359, 0.47560954, -16.387072)
+transform = Transform3D(-7.6713505e-08, 0, 1.7550002, 0, 1.7550002, 0, -1.7550002, 0, -7.6713505e-08, -4.111359, 0.47560954, -13.5042715)
 
 [node name="Node3D" parent="." unique_id=1191173673 instance=ExtResource("6_w24lh")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.120386, 1.5636635, -15.111075)
@@ -330,18 +282,6 @@ material = ExtResource("11_t7v7a")
 root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_qtppw")
 
-[node name="door4" type="CSGBox3D" parent="doors" unique_id=1910623005]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.931338, 2.1715152, -13.271513)
-use_collision = true
-collision_layer = 63
-collision_mask = 63
-size = Vector3(1, 3.4277344, 5.572113)
-material = ExtResource("11_t7v7a")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="doors/door4" unique_id=1497249392]
-root_node = NodePath("../../..")
-libraries/ = SubResource("AnimationLibrary_qtppw")
-
 [node name="door2" type="CSGBox3D" parent="doors" unique_id=2039123680]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.4591138, -1.1530583, -8.550473)
 use_collision = true
@@ -373,8 +313,6 @@ mesh = SubResource("PlaneMesh_ev8xs")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1690077028]
 use_collision = true
-collision_layer = 265
-collision_mask = 265
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1549280155]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.004027, 1.9186697, 1.286901)
@@ -439,22 +377,6 @@ material = ExtResource("7_5sfmg")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1772862328]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9037957, 2.1883774, -7.4319487)
-use_collision = true
-collision_layer = 63
-collision_mask = 63
-size = Vector3(1, 3.4277344, 2.1138306)
-material = ExtResource("7_5sfmg")
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D" unique_id=849514404]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9037957, 2.1883774, -9.43535)
-use_collision = true
-collision_layer = 63
-collision_mask = 63
-size = Vector3(1, 3.4277344, 2.1138306)
-material = ExtResource("7_5sfmg")
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D" unique_id=66866423]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.897994, 2.1883774, -17.174063)
 use_collision = true
 collision_layer = 63
 collision_mask = 63

@@ -14,6 +14,14 @@ extends CharacterBody3D
 var spawnPos : Vector3
 var spawnRot : float
 var hit = false
+var shoot_at : Vector3
+var throw_angle_degrees: float
+var initial_speed: float
+var gravity: float = 9.8
+var time: float = 0.0
+
+var z_axis = 0.0
+var is_launch: bool = false
 
 func _ready() -> void:
 	global_position = spawnPos
@@ -25,21 +33,29 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	velocity = global_basis * Vector3.BACK * SPEED
 	mesh_instance_3d.rotation += rot_speed
-	
 	if hit and not animation_player.is_playing():
 		queue_free()
 	move_and_slide()
+	
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	rot_speed = Vector3.ZERO
-	if body.is_in_group("push"):
-		body.explode = true
-		quick_flash.emitting = true
-	else:
-		quick_flash.emitting = true
-		fire.emitting = true
+	snow.emitting = true
+	mesh_instance_3d.visible = false
+	animation_player.play("explosion")
 	hit = true
 
 func _on_timer_timeout() -> void:
 	self.queue_free()
+
+func launch_projectile(direction : Vector2, desired_distance: float, desired_angle_deg: float):
+	var inital_pos = spawnPos
+	var throw_direction = direction.normalized()
+	
+	throw_angle_degrees = desired_angle_deg
+	initial_speed = pow(desired_distance * gravity / sin(2 * deg_to_rad(desired_angle_deg)), 0.5)
+	
+	z_axis = 0
+	is_launch = true
+	

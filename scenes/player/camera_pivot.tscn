@@ -4,7 +4,6 @@
 
 [node name="camera_pivot" type="Node3D" unique_id=535566052]
 script = ExtResource("1_35oy6")
-zoom_speed = 1000.0
 
 [node name="cam" type="Camera3D" parent="." unique_id=1271790586 groups=["camera"]]
 transform = Transform3D(1, 0, 0, 0, 0.8247287, 0.5655286, 0, -0.5655286, 0.8247287, 0, 2.7367482, 3.4418197)
