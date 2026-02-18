@@ -19,15 +19,8 @@ func _input(event: InputEvent) -> void:
 			global_position.z = global_position.z - (event.relative.y * camera_sensitivity)
 		
 func _physics_process(delta: float) -> void:
-	camera_movement()
 	camera_zoom()
 	
-func camera_movement():
-	var direction = Vector2.ZERO
-	direction.y = Input.get_axis("camera_up", "camera_down")
-	direction.x = Input.get_axis("camera_left", "camera_right")
-	
-	global_position += (global_basis * Vector3(direction.x, 0, direction.y)).normalized() * camera_speed
 
 func camera_zoom():
 	if Input.is_action_just_pressed("zoom") and camera_3d.size > max_zoom:

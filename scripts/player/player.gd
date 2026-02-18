@@ -9,7 +9,7 @@ extends CharacterBody3D
 @onready var projectile = load("res://scenes/fireball.tscn")
 @onready var pivot_center: Node3D = $pivot_center
 @onready var pivot_forward: Node3D = $pivot_center/pivot_forward
-@onready var ray_cast_3d: RayCast3D = $pivot_center/RayCast3D
+@onready var ray_cast_3d: RayCast3D = $gnome/RayCast3D
 @onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
 @onready var camera_3d: Camera3D = $"../Camera_pivot/Camera3D"
 @onready var steps: AudioStreamPlayer3D = $Steps
@@ -41,7 +41,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	on_ground = is_on_floor()
-	fireball.play()
+	# Add the gravity.
 	if not (on_box or on_ground):
 		
 		if Input.is_action_just_released("jump"):
@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 			barrel.get(i).collision_mask = 1
 			barrel.get(i).collision_layer = 1
 	
-	if Input.is_action_just_pressed("jump") and (on_ground or on_box) and not pushing:
+	if Input.is_action_just_pressed("jump") and (on_ground or on_box):
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
