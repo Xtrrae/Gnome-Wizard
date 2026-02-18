@@ -77,7 +77,7 @@ script = ExtResource("1_71t8j")
 rot_speed = Vector3(0.1, 0.1, 0.1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=569895488]
-transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, 0.5, 0, -0.5, -2.1855694e-08, 0, 0, 0)
+transform = Transform3D(0.3, 0, 0, 0, -1.3113417e-08, 0.3, 0, -0.3, -1.3113417e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_3s14c")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1034822108]
@@ -89,6 +89,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_cb14k")
 collision_mask = 280
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=840021471]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_1gl40")
 
 [node name="Timer" type="Timer" parent="." unique_id=1055682126]

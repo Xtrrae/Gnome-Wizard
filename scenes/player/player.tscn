@@ -112,6 +112,13 @@ shape = SubResource("BoxShape3D_p47bc")
 transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, -0.10914505, -0.1707064, 7.461813e-09)
 mesh = ExtResource("3_lvxji")
 
+[node name="RayCast3D" type="RayCast3D" parent="gnome" unique_id=1582326355]
+transform = Transform3D(10, 0, 0, 0, -4.3711387e-07, -10, 0, 10, -4.3711387e-07, 1.0914506, -1.9249953e-07, 6.1109405)
+target_position = Vector3(0, 0, 1.72)
+collision_mask = 128
+hit_from_inside = true
+debug_shape_thickness = 3
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=386164340]
 root_node = NodePath("")
 libraries/ = SubResource("AnimationLibrary_lvxji")
@@ -135,27 +142,20 @@ shape = SubResource("BoxShape3D_lvxji")
 [node name="pivot_forward" type="Node3D" parent="pivot_center" unique_id=40345167]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28796315, 0.9828421)
 
-[node name="RayCast3D" type="RayCast3D" parent="pivot_center" unique_id=1582326355]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4403876, 0)
-target_position = Vector3(0, 0, 1.72)
-collision_mask = 128
-hit_from_inside = true
-debug_shape_thickness = 3
-
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="pivot_center" unique_id=1936795915]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2756726, 1.6818752)
 mesh = SubResource("BoxMesh_dovo2")
 
 [node name="Steps" type="AudioStreamPlayer3D" parent="." unique_id=1313932447]
 stream = ExtResource("3_gmlin")
-volume_db = -10.0
+volume_db = -80.0
 
 [node name="Timer" type="Timer" parent="." unique_id=1395040603]
 wait_time = 15.0
 
 [node name="Fireball" type="AudioStreamPlayer3D" parent="." unique_id=1572012837]
 stream = ExtResource("4_lvxji")
-volume_db = -1.403
+volume_db = -80.0
 
 [connection signal="body_entered" from="Push" to="." method="_on_push_body_entered"]
 [connection signal="body_exited" from="Push" to="." method="_on_push_body_exited"]

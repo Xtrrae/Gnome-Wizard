@@ -10,7 +10,7 @@ extends Node
 func _process(delta: float) -> void:
 
 	if button.pressed == true and not door_1_player.is_playing() and not door_2_player.is_playing():
-		print("pressed")
+		
 		
 		door_2_player.play("2nd_wall_up")
 		door_1_player.play("1st_wall_down")
@@ -19,3 +19,4 @@ func _process(delta: float) -> void:
 		door_2_player.play("2nd_wall_down")
 		door_1_player.play("1st_wall_up")
 		button.unpressed = false
+		

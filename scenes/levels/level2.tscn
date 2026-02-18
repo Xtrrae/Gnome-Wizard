@@ -113,9 +113,9 @@ camera_speed = 0.5
 zoom_speed = 0.5
 
 [node name="Camera3D" type="Camera3D" parent="Camera_pivot" unique_id=1765037295]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, -0.349967, 6.0734177, 9.679871)
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, -0.349967, 6.0734177, 4.4293747)
 projection = 1
-size = 12.284
+size = 13.453676
 
 [node name="Node3D" parent="." unique_id=1191173673 instance=ExtResource("8_k0mew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.033255, 3.9046628, 6.2176814)
