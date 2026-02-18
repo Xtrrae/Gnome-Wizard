@@ -96,6 +96,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(5.931338, 2.1715152, -3.5697079)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("doors/door4:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(5.931338, 2.1715152, -13.248813)]
+}
 
 [sub_resource type="Animation" id="Animation_ev8xs"]
 resource_name = "door_3_down"
@@ -129,11 +141,45 @@ tracks/0/keys = {
 "values": [Vector3(5.931338, -1.1915691, -3.5697079), Vector3(5.931338, 2.1715152, -3.5697079)]
 }
 
+[sub_resource type="Animation" id="Animation_qtppw"]
+resource_name = "door_4_down"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("doors/door4:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(5.931338, 2.1715152, -13.248813), Vector3(5.931338, -1.3020515, -13.248813)]
+}
+
+[sub_resource type="Animation" id="Animation_atlnk"]
+resource_name = "door_4_up"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("doors/door4:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(5.931338, -1.3020515, -13.248813), Vector3(5.931338, 2.1715152, -13.248813)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qtppw"]
 _data = {
 &"RESET": SubResource("Animation_5sfmg"),
 &"door_3_down": SubResource("Animation_ev8xs"),
-&"door_3_up": SubResource("Animation_q6dln")
+&"door_3_up": SubResource("Animation_q6dln"),
+&"door_4_down": SubResource("Animation_qtppw"),
+&"door_4_up": SubResource("Animation_atlnk")
 }
 
 [sub_resource type="Animation" id="Animation_tsmbm"]
@@ -214,36 +260,25 @@ shadow_enabled = true
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.6140962, 1.1136634, 10.088966)
 
 [node name="barrel3" parent="." unique_id=884180412 instance=ExtResource("3_t7v7a")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.000985, 1.1136634, -13.376112)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.000985, 1.549835, -16.18047)
 
 [node name="barrel4" parent="." unique_id=1006953356 instance=ExtResource("3_t7v7a")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.293067, 1.1136634, -3.7326107)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.5825706, 1.1136634, 6.1799054)
 
 [node name="barrel5" parent="." unique_id=947689647 instance=ExtResource("3_t7v7a")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.229448, 1.1136634, -3.7326107)
 
-[node name="Camera_pivot" type="Node3D" parent="." unique_id=418524717]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 11.392204)
-script = ExtResource("4_xx6b8")
-camera_speed = 0.5
-zoom_speed = 0.5
-
-[node name="Camera3D" type="Camera3D" parent="Camera_pivot" unique_id=301169000]
-transform = Transform3D(-4.371139e-08, -0.7071068, 0.7071068, 0, 0.7071068, 0.7071068, -1, 3.090862e-08, -3.090862e-08, -0.009735107, 6.0734177, -3.4012256)
-projection = 1
-size = 16.982
+[node name="button2" parent="." unique_id=1928569083 instance=ExtResource("5_f62st")]
+transform = Transform3D(-7.6713505e-08, 0, 1.7550002, 0, 1.7550002, 0, -1.7550002, 0, -7.6713505e-08, -4.111359, 0.47560954, -16.405994)
 
 [node name="button" parent="." unique_id=351347304 instance=ExtResource("5_f62st")]
-transform = Transform3D(-7.6713505e-08, 0, 1.7550002, 0, 1.7550002, 0, -1.7550002, 0, -7.6713505e-08, -4.111359, 0.47560954, -3.6575441)
+transform = Transform3D(-7.6713505e-08, 0, 1.7550002, 0, 1.7550002, 0, -1.7550002, 0, -7.6713505e-08, -4.1113586, 0.47560954, 8.399292)
 
 [node name="button4" parent="." unique_id=1183520701 instance=ExtResource("5_f62st")]
 transform = Transform3D(-7.6713505e-08, 0, 1.7550002, 0, 1.7550002, 0, -1.7550002, 0, -7.6713505e-08, 10.70693, 0.47560954, 7.3118496)
 
 [node name="button3" parent="." unique_id=178865666 instance=ExtResource("5_f62st")]
 transform = Transform3D(-7.6713505e-08, 0, 1.7550002, 0, 1.7550002, 0, -1.7550002, 0, -7.6713505e-08, 10.556008, 0.47560954, -3.6575441)
-
-[node name="button2" parent="." unique_id=1928569083 instance=ExtResource("5_f62st")]
-transform = Transform3D(-7.6713505e-08, 0, 1.7550002, 0, 1.7550002, 0, -1.7550002, 0, -7.6713505e-08, -4.111359, 0.47560954, -13.5042715)
 
 [node name="Node3D" parent="." unique_id=1191173673 instance=ExtResource("6_w24lh")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.120386, 1.5636635, -15.111075)
@@ -252,6 +287,16 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.1
 
 [node name="Player" parent="." unique_id=1418047351 instance=ExtResource("8_tsmbm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.71653247, 0.8338423, 8.473988)
+
+[node name="Camera_pivot" type="Node3D" parent="Player" unique_id=418524717]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.71653247, -0.8338423, 2.9182167)
+script = ExtResource("4_xx6b8")
+camera_speed = 0.5
+zoom_speed = 0.5
+
+[node name="Camera3D" type="Camera3D" parent="Player/Camera_pivot" unique_id=301169000]
+transform = Transform3D(-4.371139e-08, -0.7071068, 0.7071068, 0, 0.7071068, 0.7071068, -1, 3.090862e-08, -3.090862e-08, 1.1815689, 13.530784, -3.4012256)
+size = 16.982
 
 [node name="Sprite2D" parent="." unique_id=2109625003 instance=ExtResource("9_y3vdi")]
 
@@ -279,6 +324,18 @@ size = Vector3(1, 3.4277344, 5.572113)
 material = ExtResource("11_t7v7a")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="doors/door3" unique_id=827651070]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_qtppw")
+
+[node name="door4" type="CSGBox3D" parent="doors" unique_id=1320813214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.931338, 2.1715152, -13.248813)
+use_collision = true
+collision_layer = 63
+collision_mask = 63
+size = Vector3(1, 3.4277344, 5.572113)
+material = ExtResource("11_t7v7a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="doors/door4" unique_id=771799206]
 root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_qtppw")
 
@@ -327,6 +384,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003661871, -0.9071009, -0.
 operation = 2
 use_collision = true
 size = Vector3(1.3579102, 0.7725544, 2.5708618)
+material = ExtResource("7_5sfmg")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1809156548]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.118135, 4.1260433, 1.2869006)
+use_collision = true
+collision_layer = 63
+collision_mask = 63
+size = Vector3(1, 0.7086792, 23.590027)
+material = ExtResource("7_5sfmg")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1391542977]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.0423827, 4.1260433, -8.074916)
+use_collision = true
+collision_layer = 63
+collision_mask = 63
+size = Vector3(19.723633, 0.7086792, 1.4268646)
+material = ExtResource("7_5sfmg")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1339179967]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.571282, 4.1260433, -8.340083)
+use_collision = true
+collision_layer = 63
+collision_mask = 63
+size = Vector3(1.4401245, 0.7086792, 10.484663)
+material = ExtResource("7_5sfmg")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1360435747]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.0581768, 4.1260433, -8.340082)
+use_collision = true
+collision_layer = 63
+collision_mask = 63
+size = Vector3(1.4401245, 0.7086792, 13.469555)
 material = ExtResource("7_5sfmg")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=105564452]
@@ -381,4 +470,20 @@ use_collision = true
 collision_layer = 63
 collision_mask = 63
 size = Vector3(1, 3.4277344, 2.1138306)
+material = ExtResource("7_5sfmg")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D" unique_id=630005117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9037957, 2.1883774, -9.447092)
+use_collision = true
+collision_layer = 63
+collision_mask = 63
+size = Vector3(1, 3.4277344, 2.1138306)
+material = ExtResource("7_5sfmg")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1923877794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9037957, 2.1883774, -16.97064)
+use_collision = true
+collision_layer = 63
+collision_mask = 63
+size = Vector3(1, 3.4277344, 2.0681458)
 material = ExtResource("7_5sfmg")

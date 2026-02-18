@@ -20,7 +20,6 @@ func _ready() -> void:
 	global_position = spawnPos
 	rotation.y = spawnRot
 	fire.emitting = true
-	
 
 	
 func _physics_process(delta: float) -> void:

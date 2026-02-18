@@ -7,13 +7,16 @@ extends Node
 @onready var animation_player: AnimationPlayer = $door1/AnimationPlayer
 @onready var animation_player3: AnimationPlayer = $door3/AnimationPlayer
 @onready var animation_player2: AnimationPlayer = $door2/AnimationPlayer
+@onready var animation_player4: AnimationPlayer = $door4/AnimationPlayer
 
 var door1_up = false
 var door2_up = true
 var door3_up = true
+var door4_up = true
 var play_anim_1 = false
 var play_anim_2 = false
 var play_anim_3 = false
+var play_anim_4 = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,19 +25,37 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	
-	if button_2.pressed :
+	if button.pressed:
 		door1_up = !door1_up
 		door2_up = !door2_up
 		play_anim_1 = true
 		play_anim_2 = true
+		button.pressed = false
+		
+	elif button.unpressed:
+		door1_up = !door1_up
+		door2_up = !door2_up
+
+		play_anim_1 = true
+		play_anim_2 = true
+		button.unpressed = false
+	
+	if button_2.pressed:
+		door1_up = !door1_up
+		door2_up = !door2_up
+		door4_up = ! door4_up
+		play_anim_1 = true
+		play_anim_2 = true
+		play_anim_4 = true
 		button_2.pressed = false
 		
 	elif button_2.unpressed:
 		door1_up = !door1_up
 		door2_up = !door2_up
+		door4_up = !door4_up
 		play_anim_1 = true
 		play_anim_2 = true
+		play_anim_4 = true
 		button_2.unpressed = false
 	
 	if door1_up and play_anim_1:
@@ -53,12 +74,16 @@ func _process(delta: float) -> void:
 
 	if button_3.pressed :
 		door1_up = !door1_up
+		door3_up = !door3_up
 		play_anim_1 = true
+		play_anim_3 = true
 		button_3.pressed = false
 		
 	elif button_3.unpressed:
 		door1_up = !door1_up
+		door3_up = !door3_up
 		play_anim_1 = true
+		play_anim_3 = true
 		button_3.unpressed = false
 		
 	if door1_up and play_anim_1:
@@ -85,5 +110,11 @@ func _process(delta: float) -> void:
 		animation_player3.play("door_3_down")
 		play_anim_3 = false
 		
+	if door4_up and play_anim_4:
+		animation_player4.play("door_4_up")
+		play_anim_4 = false
+	elif  !(door4_up) and play_anim_4:
+		animation_player4.play("door_4_down")
+		play_anim_4 = false
 		
 		

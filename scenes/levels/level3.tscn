@@ -202,17 +202,6 @@ shadow_enabled = true
 [node name="barrel" parent="." unique_id=1021782119 instance=ExtResource("4_8w0pe")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.6140962, 1.1136634, 10.088966)
 
-[node name="Camera_pivot" type="Node3D" parent="." unique_id=452327818]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 11.392204)
-script = ExtResource("5_7eb4w")
-camera_speed = 0.5
-zoom_speed = 0.5
-
-[node name="Camera3D" type="Camera3D" parent="Camera_pivot" unique_id=807799324]
-transform = Transform3D(-4.371139e-08, -0.7071068, 0.7071068, 0, 0.7071068, 0.7071068, -1, 3.090862e-08, -3.090862e-08, -0.20779991, 12.557427, -2.0382047)
-projection = 1
-size = 18.891
-
 [node name="button" parent="." unique_id=1266923062 instance=ExtResource("6_frjko")]
 transform = Transform3D(-7.6713505e-08, 0, 1.7550002, 0, 1.7550002, 0, -1.7550002, 0, -7.6713505e-08, 2.6170444, 0.47560954, 6.204175)
 
@@ -227,6 +216,22 @@ use_collision = true
 collision_layer = 63
 collision_mask = 63
 size = Vector3(1, 3.4277344, 7.345703)
+material = ExtResource("8_hadiw")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="walls" unique_id=1749715269]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.922975, 4.21975, 1.2869006)
+use_collision = true
+collision_layer = 63
+collision_mask = 63
+size = Vector3(1, 0.7701111, 23.199707)
+material = ExtResource("8_hadiw")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="walls" unique_id=1504803039]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.922975, 3.9931211, -8.56019)
+use_collision = true
+collision_layer = 63
+collision_mask = 63
+size = Vector3(1, 0.7701111, 23.199707)
 material = ExtResource("8_hadiw")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="walls" unique_id=1628284667]
@@ -284,5 +289,15 @@ autoplay = &"STAY IN PLACE WALL 2"
 
 [node name="Player" parent="." unique_id=1418047351 instance=ExtResource("3_f7rt6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.71653247, 0.8338423, 8.473988)
+
+[node name="Camera_pivot" type="Node3D" parent="Player" unique_id=452327818]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.71653247, -0.8338423, 2.9182167)
+script = ExtResource("5_7eb4w")
+camera_speed = 0.5
+zoom_speed = 0.5
+
+[node name="Camera3D" type="Camera3D" parent="Player/Camera_pivot" unique_id=807799324]
+transform = Transform3D(-4.371139e-08, -0.7071068, 0.7071068, 0, 0.7071068, 0.7071068, -1, 3.090862e-08, -3.090862e-08, -0.20779991, 12.557427, -2.0382047)
+size = 18.891
 
 [node name="Sprite2D" parent="." unique_id=2109625003 instance=ExtResource("11_72x3h")]
