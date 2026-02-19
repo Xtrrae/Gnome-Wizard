@@ -156,6 +156,15 @@ material = SubResource("ShaderMaterial_272bh")
 [node name="Player" parent="." unique_id=1303120245 instance=ExtResource("3_conm7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4732447, 2.05, -26.219227)
 
+[node name="Camera_pivot" type="Node3D" parent="Player" unique_id=1823469416]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4732447, -2.05, -5.3308067)
+script = ExtResource("8_8a7m2")
+
+[node name="Camera3D" type="Camera3D" parent="Player/Camera_pivot" unique_id=873963559]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.7071068, 0, -0.7071068, 0.70710677, 0, 9.975433, 12.045036)
+size = 12.284
+near = 0.001
+
 [node name="barrel" parent="." unique_id=1021782119 instance=ExtResource("5_u3awl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7716756, 1.797497, -23.126505)
 
@@ -168,17 +177,6 @@ collision_layer = 223
 
 [node name="Node3D" parent="." unique_id=1191173673 instance=ExtResource("7_f31uk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.830614, 1.563663, -31.53817)
-
-[node name="Camera_pivot" type="Node3D" parent="." unique_id=1823469416]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -31.550034)
-script = ExtResource("8_8a7m2")
-camera_speed = 0.5
-zoom_speed = 0.5
-
-[node name="Camera3D" type="Camera3D" parent="Camera_pivot" unique_id=873963559]
-transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 8.914758, 9.809492)
-size = 12.284
-near = 0.001
 
 [node name="Sprite2D" parent="." unique_id=2109625003 instance=ExtResource("10_5ntmo")]
 position = Vector2(633, 427)

@@ -5,6 +5,11 @@
 [ext_resource type="ArrayMesh" uid="uid://c8q4g5qv1vwpm" path="res://assets/gnome.tres" id="3_lvxji"]
 [ext_resource type="AudioStream" uid="uid://ds6628ov0o4jk" path="res://Audio/Fireball shot.wav" id="4_lvxji"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_0owmy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dovo2"]
+size = Vector3(0.5, 0.5, 0.5)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_p47bc"]
 size = Vector3(0.88062286, 0.7949467, 0.6300497)
 
@@ -82,13 +87,22 @@ size = Vector3(0.889698, 0.740386, 0.83825684)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lvxji"]
 size = Vector3(0.7141113, 0.10058212, 0.4273529)
 
-[sub_resource type="BoxMesh" id="BoxMesh_dovo2"]
-size = Vector3(0.5, 0.5, 0.5)
-
 [node name="Player" type="CharacterBody3D" unique_id=1418047351 groups=["player"]]
 collision_layer = 7
 collision_mask = 5
 script = ExtResource("1_8afob")
+
+[node name="snowballDespawn" type="Area3D" parent="." unique_id=2099486965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.7683716e-07)
+
+[node name="DESPAWN" type="CollisionShape3D" parent="snowballDespawn" unique_id=735380513]
+transform = Transform3D(0.535, 0, 0, 0, 0.535, 0, 0, 0, 0.535, -0.0035077631, 0.27025145, 2.9996815)
+shape = SubResource("BoxShape3D_0owmy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=292575039]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.276, 3)
+mesh = SubResource("BoxMesh_dovo2")
+skeleton = NodePath("../pivot_center")
 
 [node name="hitbox" type="CollisionShape3D" parent="." unique_id=1389583320]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022368282, 0.2342273, -0.00031805038)
@@ -121,11 +135,6 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="standOn" unique_id=952892102]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.039328545, -0.27017975, -0.036189556)
 shape = SubResource("BoxShape3D_lvxji")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=292575039]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2756726, 1.6818752)
-mesh = SubResource("BoxMesh_dovo2")
-skeleton = NodePath("../pivot_center")
 
 [node name="pivot_center" type="Node3D" parent="." unique_id=252773372]
 
