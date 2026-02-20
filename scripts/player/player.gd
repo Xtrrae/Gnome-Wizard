@@ -11,7 +11,7 @@ extends CharacterBody3D
 @onready var pivot_forward: Node3D = $pivot_center/pivot_forward
 @onready var ray_cast_3d: RayCast3D = $gnome/RayCast3D
 @onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
-@onready var camera_3d: Camera3D = $"../Camera_pivot/Camera3D"
+@onready var camera_3d: Camera3D = $Camera_pivot/Camera3D
 @onready var steps: AudioStreamPlayer3D = $Steps
 @onready var timer: Timer = $Timer
 @onready var fireball: AudioStreamPlayer3D = $Fireball
@@ -118,9 +118,9 @@ func _input(event: InputEvent) -> void:
 		ray_query.from = from
 		ray_query.to = to
 		var result = space.intersect_ray(ray_query)
-		shoot_at = result.position
 		if result.size() < 1:
 			return
+		shoot_at = result.position
 		print(result)
 		mesh_instance_3d.global_position = result.position + Vector3(0, .5, 0)
 		pivot_center.rotation.y = atan2(-self.position.x + result.position.x, -self.position.z + result.position.z)
@@ -135,10 +135,9 @@ func _input(event: InputEvent) -> void:
 		if  spell_type == 1:
 			var projectile = preload("res://scenes/player/Snowball.tscn")
 			var instance = projectile.instantiate()
-			instance.shoot_at = shoot_at
-			instance.spawnPos = pivot_forward.global_position
-			instance.spawnRot = pivot_center.rotation.y
 			main.add_child.call_deferred(instance)
+			instance.launch(pivot_forward.global_position, shoot_at)
+
 			
 	if Input.is_action_just_pressed("switch to fireball"):
 		print("fireball")

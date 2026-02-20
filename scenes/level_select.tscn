@@ -26,6 +26,9 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer" unique_id=299641758]
+layout_mode = 2
+
 [node name="level1" type="Button" parent="VBoxContainer" unique_id=1491483157]
 layout_mode = 2
 text = "Level 1"

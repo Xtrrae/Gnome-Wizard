@@ -24,6 +24,6 @@ func _physics_process(delta: float) -> void:
 
 func camera_zoom():
 	if Input.is_action_just_pressed("zoom") and camera_3d.fov > max_zoom:
-		camera_3d.fov = lerp(camera_3d.fov,camera_3d.fov - zoom_speed, lerp_speed)
+		camera_3d.translate_object_local(Vector3.FORWARD)
 	if Input.is_action_just_pressed("pan") and camera_3d.fov < max_pan:
-		camera_3d.fov = lerp(camera_3d.fov,camera_3d.fov + zoom_speed, lerp_speed)
+		camera_3d.translate_object_local(Vector3.BACK)

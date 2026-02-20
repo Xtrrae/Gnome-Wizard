@@ -98,7 +98,8 @@ material_override = SubResource("ShaderMaterial_fhcgs")
 mesh = SubResource("SphereMesh_fijbq")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1677512196]
-collision_mask = 280
+collision_layer = 2049
+collision_mask = 2320
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1838638468]
 shape = SubResource("SphereShape3D_7r5bw")
@@ -108,4 +109,11 @@ shape = SubResource("SphereShape3D_7r5bw")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1918338838]
 libraries/ = SubResource("AnimationLibrary_ikqmu")
 
+[node name="Timer" type="Timer" parent="." unique_id=297347659]
+wait_time = 5.0
+
+[node name="not_moving_timer" type="Timer" parent="." unique_id=760030561]
+wait_time = 0.5
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="not_moving_timer" to="." method="_on_not_moving_timer_timeout"]

@@ -1,15 +1,38 @@
 [gd_scene format=3 uid="uid://debxmlccguwim"]
 
 [ext_resource type="Script" uid="uid://chwyhw1rcyrbk" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://brvb48d53n7m1" path="res://assets/UI assets Demo (1x).png" id="2_bqqt6"]
 [ext_resource type="PackedScene" uid="uid://cnr1lxgnsj8b1" path="res://scenes/player/cursor.tscn" id="2_ekxnf"]
+[ext_resource type="FontFile" uid="uid://bigx6t66gf8q1" path="res://assets/MegamaxJonathanToo-YqOq2.ttf" id="4_wu84c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu84c"]
+atlas = ExtResource("2_bqqt6")
+region = Rect2(0, 128, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ln24"]
+atlas = ExtResource("2_bqqt6")
+region = Rect2(48, 144, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtw2f"]
+atlas = ExtResource("2_bqqt6")
+region = Rect2(96, 144, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqqt6"]
+atlas = ExtResource("2_bqqt6")
+region = Rect2(0, 144, 48, 16)
 
 [node name="MainMenu" type="Control" unique_id=1729572211]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -318.0
+offset_top = -162.0
+offset_right = -318.0
+offset_bottom = -162.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 script = ExtResource("1_l6cm7")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=209808283]
@@ -23,20 +46,47 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1777778104]
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=63252232]
+texture_filter = 1
 layout_mode = 2
-text = "Play"
+texture_normal = SubResource("AtlasTexture_wu84c")
+texture_pressed = SubResource("AtlasTexture_8ln24")
+texture_hover = SubResource("AtlasTexture_rtw2f")
 
-[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2130563612]
+[node name="TextureButton2" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=509141126]
+texture_filter = 1
 layout_mode = 2
-text = "Settings"
-
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1813943683]
-layout_mode = 2
-text = "Quit"
+texture_normal = SubResource("AtlasTexture_bqqt6")
+texture_pressed = SubResource("AtlasTexture_8ln24")
+texture_hover = SubResource("AtlasTexture_rtw2f")
 
 [node name="Sprite2D" parent="." unique_id=2109625003 instance=ExtResource("2_ekxnf")]
 position = Vector2(292, 398)
+scale = Vector2(0.05, 0.05)
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="Label" type="Label" parent="." unique_id=860423001]
+texture_filter = 5
+layout_mode = 0
+offset_left = 302.5
+offset_top = 144.5
+offset_right = 342.5
+offset_bottom = 167.5
+scale = Vector2(0.98, 1)
+theme_override_fonts/font = ExtResource("4_wu84c")
+theme_override_font_sizes/font_size = 12
+text = "Play"
+
+[node name="Label2" type="Label" parent="." unique_id=1688779650]
+texture_filter = 5
+layout_mode = 0
+offset_left = 302.0
+offset_top = 164.5
+offset_right = 342.0
+offset_bottom = 187.5
+scale = Vector2(0.98, 1)
+theme_override_fonts/font = ExtResource("4_wu84c")
+theme_override_font_sizes/font_size = 12
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
