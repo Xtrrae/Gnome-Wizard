@@ -23,9 +23,9 @@
 
 ## Goal
 
-get to the yellow floating cube thing.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p>
+  This is a small puzzle game about blowing stuff up and putting barrels on buttons, reach the yellow orb to win!
+</p>
 
 <!-- HEADER -->
 <br />
