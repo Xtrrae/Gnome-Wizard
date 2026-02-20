@@ -1,9 +1,6 @@
 <a id="readme-top"></a>
 
 
-
-<a id="readme-top"></a>https://github.com/Xtrrae/Gnome-Wizard/blob/main/README.md
-
 ## Controls
 
 - **R** – restart  
