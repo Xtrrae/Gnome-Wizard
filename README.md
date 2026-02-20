@@ -7,6 +7,26 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
+
+<a id="readme-top"></a>
+
+## Controls
+
+- **R** – restart  
+- **esc** – main menu  
+- **left click** – shoot fireball  
+- **right click** – move camera  
+
+<p align="right">(<a href="#readme-top">top</a>)</p>
+
+---
+
+## Goal
+
+get to the yellow floating cube thing.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- HEADER -->
 <br />
 <div align="center">
@@ -27,6 +47,8 @@
         <a href="https://github.com/BudzioT/Godot_Super-Wakatime/issues/new">Report Bug / Request Feature</a>
     </p>
 </div>
+
+
 
 <!-- CONTENTS -->
 <details>
